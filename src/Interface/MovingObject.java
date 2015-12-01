@@ -85,8 +85,8 @@ public abstract class MovingObject extends DrawableObject {
 
     public void rotationIncrement() {
         _rotation += _rotationSpeed;
-        if (_rotation >= 360.0D) {
-            _rotation = 0.0D;
+        if (_rotation >= 360) {
+            _rotation = 0;
         }
     }
 
