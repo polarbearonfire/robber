@@ -122,7 +122,7 @@ public class GameController implements Runnable {
         gun.setOwner(_player);
         _player.giveItem(gun);
         _drawableObjects.add(gun);
-        _player.loadItem();
+        _player.loadItem();//commment
         IItem flashlight = new Flashlight(_player.getXCoord(), _player.getYCoord(), 100, 20, initImage(Paths.FLASHLIGHT.toString()));
         _player.giveItem(flashlight);
         flashlight.setOwner(_player);
