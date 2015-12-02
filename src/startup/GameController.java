@@ -186,7 +186,6 @@ public class GameController implements Runnable {
 
 
             case PullTrigger:
-
                 if ((_player.getItem() instanceof Gun)) {
 
                     _player.setShooting(true);

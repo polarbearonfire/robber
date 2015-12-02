@@ -91,8 +91,6 @@ public abstract class MovingObject extends DrawableObject {
     }
 
 
-    //getters
-
 
     public double getSpeed() {
         return _speed;
