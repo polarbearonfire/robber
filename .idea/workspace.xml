@@ -2,24 +2,65 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7fa540b-071a-40a3-885b-4103d5ac19fe" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Interface/DrawableObject.java" afterPath="$PROJECT_DIR$/src/Interface/IDrawableObject.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Interface/GuardState.java" afterPath="$PROJECT_DIR$/src/Interface/IGuardState.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Interface/Human.java" afterPath="$PROJECT_DIR$/src/Interface/IHuman.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Interface/MovingObject.java" afterPath="$PROJECT_DIR$/src/Interface/MovingObjectI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Interface/Item.java" afterPath="$PROJECT_DIR$/src/Interface/Item.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Moving/Bullet.java" afterPath="$PROJECT_DIR$/src/Moving/Bullet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Moving/Guard.java" afterPath="$PROJECT_DIR$/src/Moving/Guard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Moving/Player.java" afterPath="$PROJECT_DIR$/src/Moving/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NonMoving/Emotion.java" afterPath="$PROJECT_DIR$/src/NonMoving/Emotion.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NonMoving/Flashlight.java" afterPath="$PROJECT_DIR$/src/NonMoving/Flashlight.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NonMoving/Footprint.java" afterPath="$PROJECT_DIR$/src/NonMoving/Footprint.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NonMoving/Paint.java" afterPath="$PROJECT_DIR$/src/NonMoving/Paint.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NonMoving/Scenery.java" afterPath="$PROJECT_DIR$/src/NonMoving/Scenery.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Input/MyMouseClickListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Input/MyMouseMotionListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Objects/Footprint.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Objects/Guard.java" />
+        
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/enums/KindsOfObjects.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Robber/Interface/IDrawableObject.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Robber/Interface/IGuardState.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Robber/Interface/IHuman.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Robber/Interface/IItem.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Robber/Interface/IMovingObject.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Robber/Moving/Bullet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Robber/Moving/Guard.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Robber/Moving/Player.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Robber/NonMoving/Emotion.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Robber/NonMoving/Flashlight.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Robber/NonMoving/Footprint.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Robber/NonMoving/Gun.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Robber/NonMoving/Paint.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Robber/NonMoving/Scenery.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Robber/enums/KindsOfDrawableObjects.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Robber/enums/KindsOfMovingObjects.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Robber/state/GuardCalmState.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Robber/state/GuardFrenziedState.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Interface/IGuardState.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Moving/Guard.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/NonMoving/Emotion.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/NonMoving/Footprint.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/enums/KindsOfDrawableObjects.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/enums/KindsOfMovingObjects.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/state/GuardCalmState.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/state/GuardFrenziedState.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Interface/IDrawableObject.java" afterPath="$PROJECT_DIR$/src/Abstract/Drawable.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Interface/IHuman.java" afterPath="$PROJECT_DIR$/src/Abstract/Human.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Interface/IItem.java" afterPath="$PROJECT_DIR$/src/Abstract/Item.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Interface/IMovingObject.java" afterPath="$PROJECT_DIR$/src/Abstract/Moving.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Moving/Bullet.java" afterPath="$PROJECT_DIR$/src/Objects/Bullet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Moving/Player.java" afterPath="$PROJECT_DIR$/src/Objects/Player.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NonMoving/Flashlight.java" afterPath="$PROJECT_DIR$/src/Objects/Flashlight.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NonMoving/Gun.java" afterPath="$PROJECT_DIR$/src/Objects/Gun.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NonMoving/Paint.java" afterPath="$PROJECT_DIR$/src/Objects/Paint.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NonMoving/Scenery.java" afterPath="$PROJECT_DIR$/src/Objects/Scenery.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/Input/KeyboardListener.class" afterPath="$PROJECT_DIR$/out/production/Robber/Input/KeyboardListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/jFrame/MainPanel.class" afterPath="$PROJECT_DIR$/out/production/Robber/jFrame/MainPanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/startup/GameController.class" afterPath="$PROJECT_DIR$/out/production/Robber/startup/GameController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/startup/Launcher.class" afterPath="$PROJECT_DIR$/out/production/Robber/startup/Launcher.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/utility/Coord.class" afterPath="$PROJECT_DIR$/out/production/Robber/utility/Coord.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/utility/FileHelper.class" afterPath="$PROJECT_DIR$/out/production/Robber/utility/FileHelper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/utility/MyMath.class" afterPath="$PROJECT_DIR$/out/production/Robber/utility/MyMath.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/levelOneMap.txt" afterPath="$PROJECT_DIR$/levelOneMap.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Input/KeyboardListener.java" afterPath="$PROJECT_DIR$/src/Input/KeyboardListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jFrame/MainPanel.java" afterPath="$PROJECT_DIR$/src/jFrame/MainPanel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/startup/GameController.java" afterPath="$PROJECT_DIR$/src/startup/GameController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/state/GuardCalmState.java" afterPath="$PROJECT_DIR$/src/state/GuardCalmState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/state/GuardFrenziedState.java" afterPath="$PROJECT_DIR$/src/state/GuardFrenziedState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/startup/Launcher.java" afterPath="$PROJECT_DIR$/src/startup/Launcher.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utility/Coord.java" afterPath="$PROJECT_DIR$/src/utility/Coord.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utility/FileHelper.java" afterPath="$PROJECT_DIR$/src/utility/FileHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utility/MyMath.java" afterPath="$PROJECT_DIR$/src/utility/MyMath.java" />
     </list>
     <ignored path="Robber.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,6 +73,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Robber$Launcher.coverage" NAME="Launcher Coverage Results" MODIFIED="1450734714356" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>behindTheScenes.*</FILTER>
+    </SUITE>
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -44,14 +90,20 @@
       <file leaf-file-name="GameController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/startup/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< 279acda1b00013e734ee52c60bb45b67bbe0c6c6
 <<<<<<< 1839a85a2ee4849faef2ce5d05f68461e97e72f1
             <state vertical-scroll-proportion="0.0">
               <caret line="187" column="29" selection-start-line="187" selection-start-column="29" selection-end-line="187" selection-end-column="29" />
+=======
+            <state vertical-scroll-proportion="-8.363636">
+              <caret line="153" column="55" selection-start-line="153" selection-start-column="55" selection-end-line="153" selection-end-column="55" />
+>>>>>>> Structural changes
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< 279acda1b00013e734ee52c60bb45b67bbe0c6c6
       <file leaf-file-name="KeyboardListener.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Input/KeyboardListener.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -61,33 +113,35 @@
 =======
             <state vertical-scroll-proportion="-5.7727275">
               <caret line="215" column="0" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
+=======
+      <file leaf-file-name="KeyboardListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Input/KeyboardListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.090909">
+              <caret line="56" column="12" selection-start-line="56" selection-start-column="12" selection-end-line="58" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyMouseMotionListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Input/MyMouseMotionListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+>>>>>>> Structural changes
               <folding>
-                <element signature="e#3996#3997#0" expanded="true" />
-                <element signature="e#4041#4042#0" expanded="true" />
-                <element signature="e#4076#4077#0" expanded="true" />
-                <element signature="e#4123#4124#0" expanded="true" />
-                <element signature="e#4160#4161#0" expanded="true" />
-                <element signature="e#4207#4208#0" expanded="true" />
-                <element signature="e#4244#4245#0" expanded="true" />
-                <element signature="e#4291#4292#0" expanded="true" />
-                <element signature="e#4329#4330#0" expanded="true" />
-                <element signature="e#4376#4377#0" expanded="true" />
-                <element signature="e#4412#4413#0" expanded="true" />
-                <element signature="e#4459#4460#0" expanded="true" />
-                <element signature="e#4495#4496#0" expanded="true" />
-                <element signature="e#4542#4543#0" expanded="true" />
-                <element signature="e#4579#4580#0" expanded="true" />
-                <element signature="e#4627#4628#0" expanded="true" />
-                <element signature="e#4877#4878#0" expanded="true" />
-                <element signature="e#4919#4920#0" expanded="true" />
-                <element signature="e#4953#4954#0" expanded="true" />
-                <element signature="e#4994#4995#0" expanded="true" />
+                <element signature="e#402#403#0" expanded="true" />
+                <element signature="e#463#464#0" expanded="true" />
+                <element signature="e#509#510#0" expanded="true" />
+                <element signature="e#570#571#0" expanded="true" />
               </folding>
 >>>>>>> Fixed KeyListener
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< 279acda1b00013e734ee52c60bb45b67bbe0c6c6
 <<<<<<< 1839a85a2ee4849faef2ce5d05f68461e97e72f1
       <file leaf-file-name="MainPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/jFrame/MainPanel.java">
@@ -98,13 +152,29 @@
 =======
       <file leaf-file-name="KeyboardListener.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Input/KeyboardListener.java">
+=======
+      <file leaf-file-name="MyMouseClickListener.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Input/MyMouseClickListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9836401">
-              <caret line="77" column="22" selection-start-line="77" selection-start-column="22" selection-end-line="77" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.9447853">
+              <caret line="29" column="0" selection-start-line="28" selection-start-column="5" selection-end-line="29" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#259#260#0" expanded="true" />
-                <element signature="e#300#301#0" expanded="true" />
+                <element signature="e#372#373#0" expanded="true" />
+                <element signature="e#422#423#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Moving.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Abstract/Moving.java">
+>>>>>>> Structural changes
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+              <folding>
+                <element signature="e#3734#3735#0" expanded="true" />
+                <element signature="e#3763#3764#0" expanded="true" />
               </folding>
 >>>>>>> Fixed KeyListener
             </state>
@@ -132,60 +202,65 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/items/Paint.java" />
-        <option value="$PROJECT_DIR$/src/items/Gun.java" />
-        <option value="$PROJECT_DIR$/src/items/Footprint.java" />
-        <option value="$PROJECT_DIR$/src/enums/Direction.java" />
-        <option value="$PROJECT_DIR$/src/items/Wall.java" />
-        <option value="$PROJECT_DIR$/src/enums/Paths.java" />
-        <option value="$PROJECT_DIR$/src/items/Cubicle.java" />
-        <option value="$PROJECT_DIR$/src/Interface/Boundary.java" />
-        <option value="$PROJECT_DIR$/src/items/Flashlight.java" />
-        <option value="$PROJECT_DIR$/src/Guard/GuardFrenziedState.java" />
-        <option value="$PROJECT_DIR$/src/items/Bullet.java" />
-        <option value="$PROJECT_DIR$/src/Guard/Guard.java" />
-        <option value="$PROJECT_DIR$/src/Guard/GuardCalmState.java" />
-        <option value="$PROJECT_DIR$/src/Player/Player.java" />
-        <option value="$PROJECT_DIR$/src/items/Boundary.java" />
-        <option value="$PROJECT_DIR$/src/NonMoving/Item.java" />
-        <option value="$PROJECT_DIR$/src/NonMoving/Emotion.java" />
-        <option value="$PROJECT_DIR$/src/factory/ItemFactory.java" />
-        <option value="$PROJECT_DIR$/src/factory/BulletFactory.java" />
-        <option value="$PROJECT_DIR$/src/NonMoving/Scenery.java" />
-        <option value="$PROJECT_DIR$/src/factory/MapObjectFactory.java" />
-        <option value="$PROJECT_DIR$/src/factory/HumanFactory.java" />
-        <option value="$PROJECT_DIR$/src/factory/MovingObjectFactory.java" />
-        <option value="$PROJECT_DIR$/src/utility/DrawableObjectFactory.java" />
-        <option value="$PROJECT_DIR$/src/enums/KindsOfBullets.java" />
-        <option value="$PROJECT_DIR$/src/enums/KindsOfMovingObjects.java" />
-        <option value="$PROJECT_DIR$/src/enums/KindsOfItems.java" />
-        <option value="$PROJECT_DIR$/src/enums/KindsOfMapObjects.java" />
-        <option value="$PROJECT_DIR$/src/enums/KindsOfDrawableObjects.java" />
         <option value="$PROJECT_DIR$/src/factory/DrawableObjectFactory.java" />
         <option value="$PROJECT_DIR$/src/Interface/Factory.java" />
         <option value="$PROJECT_DIR$/src/Factory/ObjectFactory.java" />
-        <option value="$PROJECT_DIR$/src/NonMoving/Paint.java" />
         <option value="$PROJECT_DIR$/src/state/GuardFrenziedState.java" />
         <option value="$PROJECT_DIR$/src/Interface/GuardState.java" />
-        <option value="$PROJECT_DIR$/src/state/GuardCalmState.java" />
-        <option value="$PROJECT_DIR$/src/utility/FileHelper.java" />
-        <option value="$PROJECT_DIR$/levelOneMap.txt" />
         <option value="$PROJECT_DIR$/src/Interface/DrawableObject.java" />
-        <option value="$PROJECT_DIR$/src/jFrame/MainPanel.java" />
-        <option value="$PROJECT_DIR$/src/NonMoving/Footprint.java" />
         <option value="$PROJECT_DIR$/src/NonMoving/Flashlight.java" />
         <option value="$PROJECT_DIR$/src/NonMoving/Gun.java" />
-        <option value="$PROJECT_DIR$/src/Moving/Guard.java" />
-        <option value="$PROJECT_DIR$/src/Moving/Bullet.java" />
-        <option value="$PROJECT_DIR$/src/Moving/Player.java" />
         <option value="$PROJECT_DIR$/src/Interface/Item.java" />
         <option value="$PROJECT_DIR$/src/Interface/Human.java" />
         <option value="$PROJECT_DIR$/src/Interface/MovingObject.java" />
+<<<<<<< 279acda1b00013e734ee52c60bb45b67bbe0c6c6
         <option value="$PROJECT_DIR$/src/startup/GameController.java" />
 <<<<<<< 1839a85a2ee4849faef2ce5d05f68461e97e72f1
 =======
         <option value="$PROJECT_DIR$/src/Input/KeyboardListener.java" />
 >>>>>>> Fixed KeyListener
+=======
+        <option value="$PROJECT_DIR$/src/Moving/Player.java" />
+        <option value="$PROJECT_DIR$/src/Moving/Bullet.java" />
+        <option value="$PROJECT_DIR$/src/Interface/IHuman.java" />
+        <option value="$PROJECT_DIR$/src/startup/Launcher.java" />
+        <option value="$PROJECT_DIR$/src/NonMoving/Paint.java" />
+        <option value="$PROJECT_DIR$/src/NonMoving/Footprint.java" />
+        <option value="$PROJECT_DIR$/src/state/GuardCalmState.java" />
+        <option value="$PROJECT_DIR$/src/utility/Coord.java" />
+        <option value="$PROJECT_DIR$/src/utility/FileHelper.java" />
+        <option value="$PROJECT_DIR$/src/Interface/IMovingObject.java" />
+        <option value="$PROJECT_DIR$/levelOneMap.txt" />
+        <option value="$PROJECT_DIR$/src/Moving/Guard.java" />
+        <option value="$PROJECT_DIR$/src/Object/Guard.java" />
+        <option value="$PROJECT_DIR$/src/Object/Footprint.java" />
+        <option value="$PROJECT_DIR$/src/Interface/IItem.java" />
+        <option value="$PROJECT_DIR$/src/Object/Scenery.java" />
+        <option value="$PROJECT_DIR$/src/Abstract/IItem.java" />
+        <option value="$PROJECT_DIR$/src/enums/KindsOfDrawableObjects.java" />
+        <option value="$PROJECT_DIR$/src/enums/KindsOfMovingObjects.java" />
+        <option value="$PROJECT_DIR$/src/enums/KindsOfObjects.java" />
+        <option value="$PROJECT_DIR$/src/Objects/Scenery.java" />
+        <option value="$PROJECT_DIR$/src/Abstract/IDrawableObject.java" />
+        <option value="$PROJECT_DIR$/src/Abstract/DrawableObject.java" />
+        <option value="$PROJECT_DIR$/src/Objects/Gun.java" />
+        <option value="$PROJECT_DIR$/src/Abstract/Item.java" />
+        <option value="$PROJECT_DIR$/src/Objects/Paint.java" />
+        <option value="$PROJECT_DIR$/src/Abstract/Human.java" />
+        <option value="$PROJECT_DIR$/src/Objects/Guard.java" />
+        <option value="$PROJECT_DIR$/src/Objects/Flashlight.java" />
+        <option value="$PROJECT_DIR$/src/utility/MyMath.java" />
+        <option value="$PROJECT_DIR$/src/Objects/Player.java" />
+        <option value="$PROJECT_DIR$/src/jFrame/MainPanel.java" />
+        <option value="$PROJECT_DIR$/src/Abstract/Drawable.java" />
+        <option value="$PROJECT_DIR$/src/Input/KeyboardListener.java" />
+        <option value="$PROJECT_DIR$/src/Input/MouseListener.java" />
+        <option value="$PROJECT_DIR$/src/Input/MyMouseListener.java" />
+        <option value="$PROJECT_DIR$/src/Input/MyMouseMotionListener.java" />
+        <option value="$PROJECT_DIR$/src/Input/MouseClickListener.java" />
+        <option value="$PROJECT_DIR$/src/startup/GameController.java" />
+        <option value="$PROJECT_DIR$/src/Input/MyMouseClickListener.java" />
+>>>>>>> Structural changes
       </list>
     </option>
   </component>
@@ -198,6 +273,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-10" />
+    <option name="y" value="7" />
     <option name="width" value="1924" />
     <option name="height" value="1005" />
   </component>
@@ -252,7 +328,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -275,7 +351,49 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Interface" />
+              <option name="myItemId" value="utility" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Robber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Robber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="startup" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Robber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Robber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Objects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Robber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Robber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jFrame" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -296,6 +414,7 @@
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="Robber" />
+<<<<<<< 279acda1b00013e734ee52c60bb45b67bbe0c6c6
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -309,39 +428,71 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="Input" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+=======
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Robber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="enums" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Robber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Robber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Abstract" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+>>>>>>> Structural changes
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+<<<<<<< 279acda1b00013e734ee52c60bb45b67bbe0c6c6
 <<<<<<< 1839a85a2ee4849faef2ce5d05f68461e97e72f1
 =======
       <pane id="Scope" />
 >>>>>>> Fixed KeyListener
+=======
+      <pane id="Scratches" />
+>>>>>>> Structural changes
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
-    <property name="OverrideImplement.combined" value="true" />
-    <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHub/PortableGit_c7e0cbde92ba565cb218a521411d0e854079a28c/cmd/git.exe" />
-    <property name="FullScreen" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\danecarlson\OneDrive\Robber\src\Resources" />
-      <recent name="C:\Users\danecarlson\Desktop\Robber\src\Resources" />
-      <recent name="C:\Users\danecarlson\Desktop\Robber\src" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\danecarlson\Desktop\Robber\src\Resources" />
       <recent name="C:\Users\danecarlson\Desktop\Robber\src\products" />
       <recent name="C:\Users\danecarlson\Desktop\Robber\src\movingObjects" />
       <recent name="C:\Users\danecarlson\Desktop\Robber\src\factory" />
       <recent name="C:\Users\danecarlson\Desktop\Robber\src\behindTheScenes" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Input" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\danecarlson\OneDrive\Robber\src\Resources" />
+      <recent name="C:\Users\danecarlson\Desktop\Robber\src\Resources" />
+      <recent name="C:\Users\danecarlson\Desktop\Robber\src" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Launcher">
@@ -618,6 +769,9 @@
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",VISIBILITY_SORTER,ALPHA_COMPARATOR" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -631,34 +785,74 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-10" y="0" width="1924" height="1005" extended-state="0" />
-    <editor active="false" />
+    <frame x="-10" y="7" width="1924" height="1005" extended-state="0" />
+    <editor active="true" />
     <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278302" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.379717" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17823344" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3254717" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24960588" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30306605" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
+    </layout>
+    <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+<<<<<<< 279acda1b00013e734ee52c60bb45b67bbe0c6c6
 <<<<<<< 1839a85a2ee4849faef2ce5d05f68461e97e72f1
 =======
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3278302" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
 >>>>>>> Fixed KeyListener
+=======
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278302" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+>>>>>>> Structural changes
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+<<<<<<< 279acda1b00013e734ee52c60bb45b67bbe0c6c6
 <<<<<<< 1839a85a2ee4849faef2ce5d05f68461e97e72f1
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17665616" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
 =======
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2676887" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2676887" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+>>>>>>> Structural changes
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17665616" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17656332" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3254717" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
 >>>>>>> Fixed KeyListener
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+<<<<<<< 279acda1b00013e734ee52c60bb45b67bbe0c6c6
 <<<<<<< 1839a85a2ee4849faef2ce5d05f68461e97e72f1
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32792583" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -679,6 +873,10 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
 >>>>>>> Fixed KeyListener
     </layout>
+=======
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30306605" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+>>>>>>> Structural changes
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -700,7 +898,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="81" />
+      <option name="time" value="110" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -709,17 +907,28 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/NonMoving/Gun.java">
+    <entry file="file://$PROJECT_DIR$/src/Abstract/Item.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+          <folding>
+            <element signature="e#124#125#0" expanded="false" />
+            <element signature="e#153#154#0" expanded="false" />
+            <element signature="e#258#259#0" expanded="false" />
+            <element signature="e#288#289#0" expanded="false" />
+            <element signature="e#350#351#0" expanded="false" />
+            <element signature="e#399#400#0" expanded="false" />
+            <element signature="e#446#447#0" expanded="false" />
+            <element signature="e#492#493#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/enums/Commands.java">
+    <entry file="file://$PROJECT_DIR$/src/utility/MyMath.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+          <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -730,78 +939,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/state/GuardFrenziedState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="101" column="60" selection-start-line="101" selection-start-column="60" selection-end-line="101" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/startup/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="290" column="69" selection-start-line="290" selection-start-column="69" selection-end-line="290" selection-end-column="69" />
-          <folding>
-            <element signature="e#3996#3997#0" expanded="true" />
-            <element signature="e#4041#4042#0" expanded="true" />
-            <element signature="e#4076#4077#0" expanded="true" />
-            <element signature="e#4123#4124#0" expanded="true" />
-            <element signature="e#4160#4161#0" expanded="true" />
-            <element signature="e#4207#4208#0" expanded="true" />
-            <element signature="e#4244#4245#0" expanded="true" />
-            <element signature="e#4291#4292#0" expanded="true" />
-            <element signature="e#4329#4330#0" expanded="true" />
-            <element signature="e#4376#4377#0" expanded="true" />
-            <element signature="e#4412#4413#0" expanded="true" />
-            <element signature="e#4459#4460#0" expanded="true" />
-            <element signature="e#4495#4496#0" expanded="true" />
-            <element signature="e#4542#4543#0" expanded="true" />
-            <element signature="e#4579#4580#0" expanded="true" />
-            <element signature="e#4627#4628#0" expanded="true" />
-            <element signature="e#4877#4878#0" expanded="true" />
-            <element signature="e#4919#4920#0" expanded="true" />
-            <element signature="e#4953#4954#0" expanded="true" />
-            <element signature="e#4994#4995#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Moving/Guard.java">
+    <entry file="file://$PROJECT_DIR$/src/Objects/Guard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1075#1076#0" expanded="false" />
+            <element signature="e#1102#1103#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/state/GuardFrenziedState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="95" column="9" selection-start-line="95" selection-start-column="9" selection-end-line="95" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NonMoving/Flashlight.java">
+    <entry file="file://$PROJECT_DIR$/src/Objects/Flashlight.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#507#508#0" expanded="false" />
-            <element signature="e#534#535#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NonMoving/Flashlight.java">
+    <entry file="file://$PROJECT_DIR$/src/Objects/Flashlight.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#507#508#0" expanded="false" />
-            <element signature="e#534#535#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -859,50 +1026,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utility/MyMath.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Resources/paint.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NonMoving/Emotion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="72" selection-start-line="12" selection-start-column="72" selection-end-line="12" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NonMoving/Scenery.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/enums/KindsOfMovingObjects.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/enums/Paths.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/enums/KindsOfDrawableObjects.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40550458">
-          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -917,27 +1049,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NonMoving/Paint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10653753">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/state/GuardFrenziedState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/state/GuardCalmState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -969,98 +1080,193 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Resources/robber right.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Resources/robber left.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/utility/FileHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utility/Coord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="15" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
+          <folding>
+            <element signature="e#223#224#0" expanded="false" />
+            <element signature="e#253#254#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/levelOneMap.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+          <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interface/IDrawableObject.java">
+    <entry file="file://$PROJECT_DIR$/src/startup/Launcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="18" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.5273973">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NonMoving/Footprint.java">
+    <entry file="file://$PROJECT_DIR$/src/Objects/Footprint.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+          <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NonMoving/Flashlight.java">
+    <entry file="file://$PROJECT_DIR$/src/Objects/Bullet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+          <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
           <folding>
-            <element signature="e#507#508#0" expanded="false" />
-            <element signature="e#534#535#0" expanded="false" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NonMoving/Gun.java">
+    <entry file="file://$PROJECT_DIR$/src/enums/KindsOfObjects.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.33904108">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Moving/Bullet.java">
+    <entry file="file://$PROJECT_DIR$/src/Objects/Scenery.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.64041096">
+          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="22" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Moving/Player.java">
+    <entry file="file://$PROJECT_DIR$/src/Objects/Gun.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+          <caret line="41" column="83" selection-start-line="41" selection-start-column="83" selection-end-line="41" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Abstract/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#124#125#0" expanded="false" />
+            <element signature="e#153#154#0" expanded="false" />
+            <element signature="e#258#259#0" expanded="false" />
+            <element signature="e#288#289#0" expanded="false" />
+            <element signature="e#350#351#0" expanded="false" />
+            <element signature="e#399#400#0" expanded="false" />
+            <element signature="e#446#447#0" expanded="false" />
+            <element signature="e#492#493#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Moving/Guard.java">
+    <entry file="file://$PROJECT_DIR$/src/Objects/Paint.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="12" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interface/IItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
-          <folding>
-            <element signature="e#137#138#0" expanded="false" />
-            <element signature="e#166#167#0" expanded="false" />
-            <element signature="e#342#343#0" expanded="false" />
+            <element signature="imports" expanded="false" />
             <element signature="e#372#373#0" expanded="false" />
-            <element signature="e#434#435#0" expanded="false" />
-            <element signature="e#483#484#0" expanded="false" />
-            <element signature="e#530#531#0" expanded="false" />
-            <element signature="e#576#577#0" expanded="false" />
+            <element signature="e#467#468#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interface/IHuman.java">
+    <entry file="file://$PROJECT_DIR$/src/Abstract/Human.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Objects/Guard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="71" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
+          <folding>
+            <element signature="e#1075#1076#0" expanded="false" />
+            <element signature="e#1102#1103#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/util/Vector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1136" column="0" selection-start-line="1136" selection-start-column="0" selection-end-line="1136" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Objects/Flashlight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utility/MyMath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Abstract/Moving.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+          <folding>
+            <element signature="e#3734#3735#0" expanded="true" />
+            <element signature="e#3763#3764#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Abstract/Drawable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding>
+            <element signature="e#1057#1058#0" expanded="true" />
+            <element signature="e#1087#1088#0" expanded="true" />
+            <element signature="e#1179#1180#0" expanded="true" />
+            <element signature="e#1220#1221#0" expanded="true" />
+            <element signature="e#1253#1254#0" expanded="true" />
+            <element signature="e#1295#1296#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Objects/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< 279acda1b00013e734ee52c60bb45b67bbe0c6c6
         <state vertical-scroll-proportion="0.64444447">
           <caret line="61" column="26" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
         </state>
@@ -1080,29 +1286,42 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="89" column="9" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
+=======
+        <state vertical-scroll-proportion="3.6136363">
+          <caret line="15" column="53" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
+>>>>>>> Structural changes
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/jFrame/MainPanel.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< 279acda1b00013e734ee52c60bb45b67bbe0c6c6
         <state vertical-scroll-proportion="0.0">
 <<<<<<< 1839a85a2ee4849faef2ce5d05f68461e97e72f1
           <caret line="187" column="29" selection-start-line="187" selection-start-column="29" selection-end-line="187" selection-end-column="29" />
 =======
           <caret line="23" column="15" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
+=======
+        <state vertical-scroll-proportion="-5.0">
+          <caret line="44" column="59" selection-start-line="44" selection-start-column="59" selection-end-line="44" selection-end-column="59" />
+>>>>>>> Structural changes
           <folding>
-            <element signature="e#487#488#0" expanded="false" />
-            <element signature="e#524#525#0" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interface/IGuardState.java">
+    <entry file="file://$PROJECT_DIR$/src/Input/KeyboardListener.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< 279acda1b00013e734ee52c60bb45b67bbe0c6c6
         <state vertical-scroll-proportion="0.29839703">
           <caret line="12" column="49" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
 >>>>>>> Fixed KeyListener
+=======
+        <state vertical-scroll-proportion="-9.090909">
+          <caret line="56" column="12" selection-start-line="56" selection-start-column="12" selection-end-line="58" selection-end-column="22" />
+>>>>>>> Structural changes
           <folding />
         </state>
       </provider>
@@ -1116,45 +1335,122 @@
 =======
     <entry file="file://$PROJECT_DIR$/src/startup/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.7727275">
-          <caret line="215" column="0" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
+        <state vertical-scroll-proportion="-8.363636">
+          <caret line="153" column="55" selection-start-line="153" selection-start-column="55" selection-end-line="153" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Input/MyMouseMotionListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
           <folding>
-            <element signature="e#3996#3997#0" expanded="true" />
-            <element signature="e#4041#4042#0" expanded="true" />
-            <element signature="e#4076#4077#0" expanded="true" />
-            <element signature="e#4123#4124#0" expanded="true" />
-            <element signature="e#4160#4161#0" expanded="true" />
-            <element signature="e#4207#4208#0" expanded="true" />
-            <element signature="e#4244#4245#0" expanded="true" />
-            <element signature="e#4291#4292#0" expanded="true" />
-            <element signature="e#4329#4330#0" expanded="true" />
-            <element signature="e#4376#4377#0" expanded="true" />
-            <element signature="e#4412#4413#0" expanded="true" />
-            <element signature="e#4459#4460#0" expanded="true" />
-            <element signature="e#4495#4496#0" expanded="true" />
-            <element signature="e#4542#4543#0" expanded="true" />
-            <element signature="e#4579#4580#0" expanded="true" />
-            <element signature="e#4627#4628#0" expanded="true" />
-            <element signature="e#4877#4878#0" expanded="true" />
-            <element signature="e#4919#4920#0" expanded="true" />
-            <element signature="e#4953#4954#0" expanded="true" />
-            <element signature="e#4994#4995#0" expanded="true" />
+            <element signature="e#402#403#0" expanded="true" />
+            <element signature="e#463#464#0" expanded="true" />
+            <element signature="e#509#510#0" expanded="true" />
+            <element signature="e#570#571#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Input/KeyboardListener.java">
+    <entry file="file://$PROJECT_DIR$/src/Input/MyMouseClickListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9836401">
-          <caret line="77" column="22" selection-start-line="77" selection-start-column="22" selection-end-line="77" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.9447853">
+          <caret line="29" column="0" selection-start-line="28" selection-start-column="5" selection-end-line="29" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#259#260#0" expanded="true" />
-            <element signature="e#300#301#0" expanded="true" />
+            <element signature="e#372#373#0" expanded="true" />
+            <element signature="e#422#423#0" expanded="true" />
           </folding>
 >>>>>>> Fixed KeyListener
         </state>
       </provider>
     </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Robber</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

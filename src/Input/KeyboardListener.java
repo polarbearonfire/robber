@@ -15,32 +15,20 @@ public class KeyboardListener implements java.awt.event.KeyListener {
 
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
-            case KeyEvent.VK_DOWN:
-                this._gameController.downKeyPressed();
+            case KeyEvent.VK_S:
+                this._gameController.sKeyPressed();
                 break;
 
-            case KeyEvent.VK_UP:
-                this._gameController.upKeyPressed();
-                break;
-
-            case KeyEvent.VK_RIGHT:
-                this._gameController.rightKeyPressed();
-                break;
-
-            case KeyEvent.VK_LEFT:
-                this._gameController.leftKeyPressed();
-                break;
-
-            case KeyEvent.VK_SPACE:
-                this._gameController.spaceKeyReleased();
-                break;
-
-            case KeyEvent.VK_A:
-                this._gameController.aKeyPressed();
+            case KeyEvent.VK_W:
+                this._gameController.wKeyPressed();
                 break;
 
             case KeyEvent.VK_D:
                 this._gameController.dKeyPressed();
+                break;
+
+            case KeyEvent.VK_A:
+                this._gameController.aKeyPressed();
                 break;
 
             case KeyEvent.VK_T:
@@ -54,24 +42,17 @@ public class KeyboardListener implements java.awt.event.KeyListener {
     public void keyReleased(KeyEvent e) {
 
         switch (e.getKeyCode()) {
-            case KeyEvent.VK_DOWN:
-                this._gameController.downKeyReleased();
+            case KeyEvent.VK_S:
+                this._gameController.sKeyReleased();
                 break;
-            case KeyEvent.VK_UP:
-                this._gameController.upKeyReleased();
-                break;
-            case KeyEvent.VK_RIGHT:
-                this._gameController.rightKeyReleased();
-                break;
-            case KeyEvent.VK_LEFT:
-                this._gameController.leftKeyReleased();
-                break;
-
-            case KeyEvent.VK_A:
-                this._gameController.aKeyReleased();
+            case KeyEvent.VK_W:
+                this._gameController.wKeyReleased();
                 break;
             case KeyEvent.VK_D:
                 this._gameController.dKeyReleased();
+                break;
+            case KeyEvent.VK_A:
+                this._gameController.aKeyReleased();
                 break;
             case KeyEvent.VK_SPACE:
                 this._gameController.spaceKeyReleased();

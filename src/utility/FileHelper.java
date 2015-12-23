@@ -1,7 +1,9 @@
 package utility;
 
-import Interface.IDrawableObject;
 import startup.GameController;
+
+import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class FileHelper {
@@ -12,14 +14,14 @@ public class FileHelper {
         _gc = gc;
     }
 
-    public String[] getValues(String textLine) {
-        IDrawableObject toReturn = null;
-        String[] values = new String[5];
-        for (int i = 0; i < 4; i++) {
-            values[i] = textLine.substring(0, textLine.indexOf(' '));
+    public ArrayList<String> getValues(Scanner sc) {
+        String textLine = sc.nextLine();
+        ArrayList<String> values = new ArrayList();
+        while (textLine.contains(" ")) {
+            values.add(textLine.substring(0, textLine.indexOf(' ')));
             textLine = textLine.substring(textLine.indexOf(' ') + 1, textLine.length());
         }
-        values[4] = textLine;
+        values.add(textLine);
         return values;
     }
 }
