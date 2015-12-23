@@ -1,11 +1,11 @@
 
 package NonMoving;
-import Interface.Item;
+import Interface.IItem;
 import Moving.Bullet;
 import enums.Paths;
 
 
-public class Gun extends Item {
+public class Gun extends IItem {
     protected double _widthOf0DegreeTriangle;
     protected double _heightOf0DegreeTriangle;
     protected double _hypotenuseOf0DegreeTriangle;

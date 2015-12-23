@@ -1,11 +1,11 @@
 package startup;
 
-import Interface.DrawableObject;
-import Interface.Human;
-import Interface.MovingObject;
+import Interface.IDrawableObject;
+import Interface.IHuman;
+import Interface.IMovingObject;
 import Moving.Guard;
 import Input.KeyboardListener;
-import Interface.Item;
+import Interface.IItem;
 import Moving.Bullet;
 import NonMoving.*;
 import Moving.Player;
@@ -29,7 +29,7 @@ public class GameController implements Runnable {
     JFrame _frame;
     MainPanel _mainPanel;
     KeyboardListener _listener;
-    Vector<DrawableObject> _drawableObjects;
+    Vector<IDrawableObject> _drawableObjects;
     Vector<Guard> _guards;
     Vector<Bullet> _bullets;
     static Player _player;
@@ -53,8 +53,8 @@ public class GameController implements Runnable {
 
         try {
             Scanner sc = new Scanner(new java.io.File("levelOneMap.txt"));
-            Vector<DrawableObject> dos = new Vector<DrawableObject>();
-            Vector<Human> mos = new Vector<>();
+            Vector<IDrawableObject> dos = new Vector<IDrawableObject>();
+            Vector<IHuman> mos = new Vector<>();
             while (sc.hasNext()) {
                 String line = sc.nextLine();
                 String[] vals = (_fileHelper.getValues(line));
@@ -86,7 +86,7 @@ public class GameController implements Runnable {
 
     public void setNotification(String toSet) {
 
-        toSet = "Current Item: " + toSet;
+        toSet = "Current IItem: " + toSet;
 
         _mainPanel.setNotification(toSet);
 
@@ -118,15 +118,15 @@ public class GameController implements Runnable {
 
         _player = new Player(100, 100, 50, 50, initImage(Paths.ROBBER.toString()));
 
-        Item gun = new Gun((int) _player.getXCoord(), (int) _player.getYCoord(), 35, 20, initImage(Paths.BASIC_GUN.toString()));
+        IItem gun = new Gun((int) _player.getXCoord(), (int) _player.getYCoord(), 35, 20, initImage(Paths.BASIC_GUN.toString()));
         gun.setOwner(_player);
         _player.giveItem(gun);
         _drawableObjects.add(gun);
         _player.loadItem();
-        Item flashlight = new Flashlight(_player.getXCoord(), _player.getYCoord(), 100, 20, initImage(Paths.FLASHLIGHT.toString()));
+        IItem flashlight = new Flashlight(_player.getXCoord(), _player.getYCoord(), 100, 20, initImage(Paths.FLASHLIGHT.toString()));
         _player.giveItem(flashlight);
         flashlight.setOwner(_player);
-        Item paint = new Paint((int) _player.getXCoord(), (int) _player.getYCoord(), 40, 40, initImage(Paths.PAINT.toString()));
+        IItem paint = new Paint((int) _player.getXCoord(), (int) _player.getYCoord(), 40, 40, initImage(Paths.PAINT.toString()));
         paint.setOwner(_player);
         _player.giveItem(paint);
         setNotification(gun.getName());
@@ -145,6 +145,7 @@ public class GameController implements Runnable {
     }
 
 
+<<<<<<< 1839a85a2ee4849faef2ce5d05f68461e97e72f1
     public void buttonPressed(Commands pressed) {
         switch (pressed) {
 
@@ -205,40 +206,77 @@ public class GameController implements Runnable {
                 _player.setRotateC(false);
 
                 break;
+=======
+    public void upKeyPressed() {
+        _player.setYDir(Direction.UP);
+    }
+>>>>>>> Fixed KeyListener
 
-            case RotateClockwise:
-                _player.setRotateC(true);
+    public void upKeyReleased() {
+        _player.setYDir(Direction.NONE);
+    }
 
-                _player.setRotateCC(false);
+    public void downKeyReleased() {
+        _player.setYDir(Direction.NONE);
+    }
 
-                break;
+    public void leftKeyReleased() {
+        _player.setXDir(Direction.NONE);
+    }
 
-            case StopRotateCounterClockwise:
+    public void rightKeyReleased() {
+        _player.setXDir(Direction.NONE);
+    }
 
-                _player.setRotateCC(false);
+    public void downKeyPressed() {
+        _player.setYDir(Direction.DOWN);
+    }
 
-                break;
+    public void leftKeyPressed() {
+        _player.setXDir(Direction.LEFT);
+    }
 
-            case StopRotateClockwise:
+    public void rightKeyPressed() {
+        _player.setXDir(Direction.RIGHT);
+    }
 
-                _player.setRotateC(false);
+    public void aKeyPressed() {
+        _player.setRotateCC(true);
+        _player.setRotateC(false);
+    }
+    public void dKeyPressed() {
+        _player.setRotateC(true);
+        _player.setRotateCC(false);
+    }
+    public void aKeyReleased() {
+        _player.setRotateCC(false);
+    }
 
-                break;
+    public void dKeyReleased() {
+        _player.setRotateC(false);
+    }
 
-            case SwitchWeapon:
+    public void spaceKeyReleased() {
+        if ((_player.getItem() instanceof Gun)) {
 
-                _player.setPainting(false);
-                _player.setShooting(false);
+            _player.setShooting(true);
 
-                _drawableObjects.remove(_player.getItem());
-                _player.nextItem();
+        } else if ((_player.getItem() instanceof NonMoving.Paint)) {
 
-                _drawableObjects.add(_player.getItem());
-                setNotification(_player.getItem().getName());
-                _player.getItem().setBelongsToMainCharacter(true);
+            _player.togglePainting();
 
         }
     }
+    public void tKeyPressed(){
+        _player.setPainting(false);
+        _player.setShooting(false);
+        _drawableObjects.remove(_player.getItem());
+        _player.nextItem();
+        _drawableObjects.add(_player.getItem());
+        setNotification(_player.getItem().getName());
+        _player.getItem().setBelongsToMainCharacter(true);
+    }
+
 
     long _incrementalTimer = System.currentTimeMillis();
     long _reasonableTimer = System.currentTimeMillis();
@@ -249,8 +287,8 @@ public class GameController implements Runnable {
 
             if (System.currentTimeMillis() - _incrementalTimer > LIMIT) {
 
-                Vector<MovingObject> thingsToMove = getAllMovingObjects();
-                for (MovingObject m : thingsToMove) {
+                Vector<IMovingObject> thingsToMove = getAllMovingObjects();
+                for (IMovingObject m : thingsToMove) {
                     m.increment();
 
                     if (System.currentTimeMillis() - _reasonableTimer > REASONABLE_LIMIT) {
@@ -287,8 +325,8 @@ public class GameController implements Runnable {
     }
 
 
-    public Vector<MovingObject> getAllMovingObjects() {
-        Vector<MovingObject> toReturn = new Vector();
+    public Vector<IMovingObject> getAllMovingObjects() {
+        Vector<IMovingObject> toReturn = new Vector();
 
         toReturn.add(_player);
         toReturn.addAll(_guards);
@@ -298,8 +336,8 @@ public class GameController implements Runnable {
 
     }
 
-    public Vector<DrawableObject> getAllDrawableObjects() {
-        Vector<DrawableObject> toReturn = new Vector();
+    public Vector<IDrawableObject> getAllDrawableObjects() {
+        Vector<IDrawableObject> toReturn = new Vector();
 
         toReturn.addAll(_guards);
         toReturn.addAll(_bullets);

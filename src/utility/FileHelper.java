@@ -1,9 +1,6 @@
 package utility;
 
-import Interface.DrawableObject;
-import Moving.Guard;
-import NonMoving.Scenery;
-import enums.Paths;
+import Interface.IDrawableObject;
 import startup.GameController;
 
 
@@ -16,7 +13,7 @@ public class FileHelper {
     }
 
     public String[] getValues(String textLine) {
-        DrawableObject toReturn = null;
+        IDrawableObject toReturn = null;
         String[] values = new String[5];
         for (int i = 0; i < 4; i++) {
             values[i] = textLine.substring(0, textLine.indexOf(' '));

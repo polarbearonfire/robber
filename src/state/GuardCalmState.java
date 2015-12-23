@@ -1,15 +1,14 @@
 package state;
 
-import Interface.GuardState;
+import Interface.IGuardState;
 import Moving.Guard;
 import utility.Coord;
-import NonMoving.Emotion;
 import Moving.Player;
 
 /**
  * Created by danecarlson on 9/21/2015.
  */
-public class GuardCalmState extends GuardState {
+public class GuardCalmState extends IGuardState {
 
     final double DESIRED_SPEED = .5;
     final double DESIRED_ROTATION_SPEED = 1;

@@ -6,7 +6,7 @@ import Moving.Player;
 /**
  * Created by danecarlson on 9/21/2015.
  */
-public abstract class GuardState {
+public abstract class IGuardState {
     protected Guard _g;
     protected Player _p;
 

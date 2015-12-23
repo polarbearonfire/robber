@@ -2,20 +2,20 @@
 package Interface;
 
 
-public abstract class Item extends DrawableObject {
+public abstract class IItem extends IDrawableObject {
 
 
-    protected Human _owner;
+    protected IHuman _owner;
 
-    public Human getOwner() {
+    public IHuman getOwner() {
         return _owner;
     }
 
     public abstract void load(int paramInt1, int paramInt2);
 
-    public abstract DrawableObject use(int paramInt1, int paramInt2);
+    public abstract IDrawableObject use(int paramInt1, int paramInt2);
 
-    public void setOwner(Human owner) {
+    public void setOwner(IHuman owner) {
         _owner = owner;
     }
 

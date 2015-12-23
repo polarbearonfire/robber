@@ -6,7 +6,7 @@ import java.awt.*;
 import java.util.Iterator;
 import javax.swing.JPanel;
 
-import Interface.DrawableObject;
+import Interface.IDrawableObject;
 import startup.GameController;
 
 
@@ -28,14 +28,14 @@ public class MainPanel
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         if (GameController.getPlayer() != null) {
-            Iterator<DrawableObject> itr = _controller.getAllDrawableObjects().iterator();
+            Iterator<IDrawableObject> itr = _controller.getAllDrawableObjects().iterator();
             int centerScreenX = getWidth() / 2;
             int centerScreenY = getHeight() / 2;
 
             double offsetX = centerScreenX - GameController.getPlayer().getXCoord();
             double offsetY = centerScreenY - GameController.getPlayer().getYCoord();
             while (itr.hasNext()) {
-                DrawableObject mo = itr.next();
+                IDrawableObject mo = itr.next();
                 if (mo != null) {
                     Graphics2D g2d = (Graphics2D) g.create();
 

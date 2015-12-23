@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 /**
  * Created by danecarlson on 10/1/2015.
  */
-public abstract class DrawableObject {
+public abstract class IDrawableObject {
     public double _xCoord;
     public double _yCoord;
     public double _rotation;

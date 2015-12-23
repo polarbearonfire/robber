@@ -1,12 +1,12 @@
 package NonMoving;
 
-import Interface.DrawableObject;
-import Interface.Item;
+import Interface.IDrawableObject;
+import Interface.IItem;
 import enums.Paths;
 
 import java.awt.Image;
 
-public class Paint extends Item {
+public class Paint extends IItem {
 
     public Paint(int x, int y, int width, int height, Image image) {
         _xCoord = x;
@@ -16,7 +16,7 @@ public class Paint extends Item {
         _image = image;
     }
 
-    public DrawableObject use(int x, int y) {
+    public IDrawableObject use(int x, int y) {
         return new Footprint(x,y,10,10, getRotation(), initImage(Paths.FOOTPRINT.toString()));
     }
 

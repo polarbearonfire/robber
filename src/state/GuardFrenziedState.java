@@ -1,8 +1,7 @@
 package state;
 
-import Interface.GuardState;
+import Interface.IGuardState;
 import Moving.Guard;
-import NonMoving.Emotion;
 import Moving.Player;
 
 /**
@@ -10,7 +9,7 @@ import Moving.Player;
  */
 
 
-public class GuardFrenziedState extends GuardState {
+public class GuardFrenziedState extends IGuardState {
     final int FRENZIED_TIME_SECONDS = 15000;
     final double DESIRED_SPEED = 1.5;
     final double DESIRED_ROTATION_SPEED = 2;

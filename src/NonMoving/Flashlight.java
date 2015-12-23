@@ -10,7 +10,7 @@ import Moving.Player;
 import startup.GameController;
 
 
-public class Flashlight extends Item {
+public class Flashlight extends IItem {
 
     public Flashlight(double x, double y, int width, int height, Image image) {
         _xCoord = x;
@@ -24,7 +24,7 @@ public class Flashlight extends Item {
     public void load(int centerOfMaxX, int centerOfManY) {
     }
 
-    public Human use(int centerOfManX, int centerOfManY) {
+    public IHuman use(int centerOfManX, int centerOfManY) {
         return null;
     }
 

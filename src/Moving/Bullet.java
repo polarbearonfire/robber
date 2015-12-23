@@ -1,10 +1,10 @@
 package Moving;
 
 import java.awt.Image;
-import Interface.MovingObject;
+import Interface.IMovingObject;
 
 public class Bullet
-        extends MovingObject {
+        extends IMovingObject {
     double _rise;
     double _run;
 

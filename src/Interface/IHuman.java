@@ -2,21 +2,15 @@
 package Interface;
 
 
-import enums.Direction;
-
-import java.awt.*;
-import java.util.*;
-
-
-public abstract class Human extends MovingObject {
+public abstract class IHuman extends IMovingObject {
 
     protected boolean _isShooting;
     protected boolean _isPainting;
 
 
-    public java.util.Queue<Item> _items;
+    public java.util.Queue<IItem> _items;
 
-    public Item _item;
+    public IItem _item;
 
     @Override
     public void increment() {
@@ -38,21 +32,21 @@ public abstract class Human extends MovingObject {
     }
 
 
-    public Item getItem() {
+    public IItem getItem() {
         return _item;
     }
 
 
     public void nextItem() {
         if ((this._items != null) && (this._items.size() > 0)) {
-            Item next = this._items.remove();
-            Item old = this._item;
+            IItem next = this._items.remove();
+            IItem old = this._item;
             this._item = next;
             this._items.add(old);
         }
     }
 
-    public void giveItem(Item item) {
+    public void giveItem(IItem item) {
         if (this._item == null) {
             this._item = item;
         } else {

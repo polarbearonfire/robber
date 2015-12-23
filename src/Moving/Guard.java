@@ -6,11 +6,11 @@ import java.awt.*;
 import java.util.LinkedList;
 import java.util.Vector;
 
-import Interface.DrawableObject;
-import Interface.Human;
+import Interface.IDrawableObject;
+import Interface.IHuman;
 import enums.Paths;
 import startup.GameController;
-import Interface.GuardState;
+import Interface.IGuardState;
 import state.GuardCalmState;
 import state.GuardFrenziedState;
 import utility.Coord;
@@ -18,10 +18,10 @@ import NonMoving.Emotion;
 import utility.Route;
 
 
-public class Guard extends Human {
+public class Guard extends IHuman {
     public Route _route;
-    public GuardState _state;
-    public DrawableObject _touchingMe;
+    public IGuardState _state;
+    public IDrawableObject _touchingMe;
     public Coord _currentDestination;
     public double _degreeGoal;
     public boolean _patrolClockwise;
@@ -59,9 +59,9 @@ public class Guard extends Human {
 
 
     @Override
-    public boolean colliding(Vector<Human> bounds) {
+    public boolean colliding(Vector<IHuman> bounds) {
         Rectangle pRect = new Rectangle((int) getXCoord(), (int) getYCoord(), getWidth(), getHeight());
-        for (DrawableObject b : bounds) {
+        for (IDrawableObject b : bounds) {
 
             Rectangle bound = new Rectangle((int) b.getXCoord(), (int) b.getYCoord(), b.getWidth(), b.getHeight());
 
@@ -83,7 +83,7 @@ public class Guard extends Human {
 
 
 
-    public void getRouteFromDrawableObject(DrawableObject mo) {
+    public void getRouteFromDrawableObject(IDrawableObject mo) {
         double x1 = mo.getXCoord() - getWidth();
         double y1 = mo.getYCoord() - getHeight();
         double x2 = mo.getXCoord() + mo.getWidth() + getWidth();

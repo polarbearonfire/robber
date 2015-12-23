@@ -9,7 +9,7 @@ import java.util.Vector;
 /**
  * Created by danecarlson on 10/15/2015.
  */
-public abstract class MovingObject extends DrawableObject {
+public abstract class IMovingObject extends IDrawableObject {
     public double _speed;
     Direction _xDir, _yDir;
     public double _rotationSpeed;
@@ -61,9 +61,9 @@ public abstract class MovingObject extends DrawableObject {
 
 
 
-    public boolean colliding(Vector<Human> bounds) {
+    public boolean colliding(Vector<IHuman> bounds) {
         Rectangle pRect = new Rectangle((int) getXCoord(), (int) getYCoord(), getWidth(), getHeight());
-        for (DrawableObject mo : bounds) {
+        for (IDrawableObject mo : bounds) {
             Rectangle bound = new Rectangle((int) mo.getXCoord(), (int) mo.getYCoord(), mo.getWidth(), mo.getHeight());
             if (pRect.getBounds().intersects(bound)) {
                 return true;

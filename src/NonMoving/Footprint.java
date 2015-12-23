@@ -2,9 +2,9 @@ package NonMoving;
 
 import java.awt.Image;
 
-import Interface.DrawableObject;
+import Interface.IDrawableObject;
 
-public class Footprint extends DrawableObject {
+public class Footprint extends IDrawableObject {
 
     public Footprint(int x, int y, int width, int height, double rotation, Image image) {
         _xCoord = x;

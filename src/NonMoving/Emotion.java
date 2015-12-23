@@ -1,14 +1,13 @@
 package NonMoving;
 
-import Interface.DrawableObject;
-import Interface.MovingObject;
+import Interface.IDrawableObject;
 
 import java.awt.*;
 
 /**
  * Created by danecarlson on 9/21/2015.
  */
-public class Emotion extends DrawableObject {
+public class Emotion extends IDrawableObject {
 
     public Emotion(double x, double y, int width, int height, Image img){
         _xCoord = x;
