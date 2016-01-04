@@ -4,7 +4,6 @@ import enums.Direction;
 
 import java.awt.*;
 import java.util.Queue;
-import java.util.Vector;
 
 public abstract class Moving extends Drawable {
     public double _speed;
@@ -27,14 +26,14 @@ public abstract class Moving extends Drawable {
                 rotationDecrement();
             }
             if (_xDir == Direction.RIGHT) {
-                _xCoord += _speed;
+                _x += _speed;
             } else if (_xDir == Direction.LEFT) {
-                _xCoord -= _speed;
+                _x -= _speed;
             }
             if (_yDir == Direction.UP) {
-                _yCoord -= _speed;
+                _y -= _speed;
             } else if (_yDir == Direction.DOWN) {
-                _yCoord += _speed;
+                _y += _speed;
             }
 
             //step
@@ -58,24 +57,36 @@ public abstract class Moving extends Drawable {
 
 
     public boolean isMoving() {
-        if (_yDir != Direction.NONE || _xDir != Direction.NONE) {
+        if (_yDir != Direction.NONE || _xDir != Direction.NONE && _speed > 0) {
             return true;
         }
         return false;
     }
 
 
-    public boolean colliding(Vector<Human> bounds) {
-        Rectangle pRect = new Rectangle((int) getX(), (int) getY(), getWidth(), getHeight());
-        for (Drawable mo : bounds) {
-            Rectangle bound = new Rectangle((int) mo.getX(), (int) mo.getY(), mo.getWidth(), mo.getHeight());
-            if (pRect.getBounds().intersects(bound)) {
+    public boolean colliding(Moving other) {
+        if (!(this instanceof Item) && !(other instanceof Item)) {
+            Rectangle thisRect = new Rectangle(
+                    (int) getX(),
+                    (int) getY(),
+                    getWidth(),
+                    getHeight());
+            Rectangle otherRect = new Rectangle(
+                    (int) other.getX(),
+                    (int) other.getY(),
+                    other.getWidth(),
+                    other.getHeight());
+            if (thisRect.getBounds().intersects(otherRect)) {
                 return true;
             }
+
         }
         return false;
     }
 
+    public void hitByBullet() {
+
+    }
 
     public boolean _isRotatingClockwise;
 
@@ -95,7 +106,6 @@ public abstract class Moving extends Drawable {
     }
 
 
-
     public double getSpeed() {
         return _speed;
     }
@@ -108,26 +118,6 @@ public abstract class Moving extends Drawable {
         return _yDir;
     }
 
-
-    public Direction getOppositeXDirection() {
-        if (isLeft()) {
-            return Direction.RIGHT;
-        } else if (isRight()) {
-            return Direction.LEFT;
-        } else {
-            return Direction.NONE;
-        }
-    }
-
-    public Direction getOppositeYDirection() {
-        if (isUp()) {
-            return Direction.DOWN;
-        } else if (isDown()) {
-            return Direction.UP;
-        } else {
-            return Direction.NONE;
-        }
-    }
 
     //setters
     public void setRotateC(boolean whether) {
@@ -158,23 +148,6 @@ public abstract class Moving extends Drawable {
 
     public void setImage(java.awt.Image newImg) {
         _image = newImg;
-    }
-
-
-    public boolean isRight() {
-        return _xDir == Direction.RIGHT;
-    }
-
-    public boolean isLeft() {
-        return _xDir == Direction.LEFT;
-    }
-
-    public boolean isDown() {
-        return _yDir == Direction.DOWN;
-    }
-
-    public boolean isUp() {
-        return _yDir == Direction.UP;
     }
 
 }

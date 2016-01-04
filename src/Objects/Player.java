@@ -13,9 +13,18 @@ import java.util.Vector;
 
 public class Player
         extends Human {
-    public Player(int width, int height, Image img) {
+
+    Gun _gun;
+    Paint _paint;
+
+    public Player(int x, int y, int width, int height, Gun gun, Paint paint, Flashlight flashlight, Image img) {
+        _x = x;
+        _y = y;
         _width = width;
         _height = height;
+        _gun = gun;
+        _paint = paint;
+        _flashlight = flashlight;
         _image = img;
         _speed = 1;
         _rotationSpeed = 2;
@@ -28,29 +37,39 @@ public class Player
     }
 
 
+    public void spotted(){
+        _speed = 0;
+    }
+
     protected long lastTimeUsedGun = 0;
     protected long lastTimeUsedPaint = 0;
 
+
     public Moving useItem() {
-        if (isShooting() && System.currentTimeMillis() - lastTimeUsedGun > USE_GUN_LIMIT) {
+        if (_item instanceof Gun && System.currentTimeMillis() - lastTimeUsedGun > USE_GUN_LIMIT) {
             Bullet bullet = (Bullet) useGun();
-            setShooting(false);
             lastTimeUsedGun = System.currentTimeMillis();
             return bullet;
 
-        } else if (isPainting() && isMoving() && System.currentTimeMillis() - lastTimeUsedPaint > USE_PAINT_LIMIT) {
+        } else if (_item instanceof Paint && System.currentTimeMillis() - lastTimeUsedPaint > USE_PAINT_LIMIT) {
             Footprint f = (Footprint) usePaint();
             lastTimeUsedPaint = System.currentTimeMillis();
             return f;
+        } else {
+            useFlashlight();
         }
         return null;
+    }
+
+    public void useFlashlight() {
+        _flashlight.use();
     }
 
     public Moving useGun() {
         int x = (int) (getX() + getWidth() / 2);
         int y = (int) (getY() + getHeight() / 2);
 
-        Moving toReturn = _item.use(x, y);
+        Moving toReturn = _gun.use(x, y);
         toReturn.belongsToMainCharacter(true);
         return toReturn;
     }
@@ -61,28 +80,14 @@ public class Player
         x += getWidth() / 2;
         int y = (int) getY();
         y += getHeight() / 2;
-        Moving toReturn = _item.use(x, y);
+        Moving toReturn = _paint.use(x, y);
         toReturn.belongsToMainCharacter(false);
 
         return toReturn;
     }
 
 
-    //do not change this unless you have good reason to.  colliding needs to override because
-    //_xOffsets are temporary usually when checking if player is colliding with others
-    public boolean colliding(Vector<Human> bounds) {
-        if (bounds == null) {
-            return false;
-        }
-        Rectangle pRect = new Rectangle((int) getX(), (int) getY(), getWidth(), getHeight());
-        for (Moving mo : bounds) {
-            Rectangle bound = new Rectangle((int) (mo.getX()), (int) (mo.getY()), mo.getWidth(), mo.getHeight());
-            if (pRect.getBounds().intersects(bound)) {
-                return true;
-            }
-        }
-        return false;
-    }
+
 
 
 }

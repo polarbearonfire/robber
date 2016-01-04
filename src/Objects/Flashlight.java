@@ -3,19 +3,25 @@ package Objects;
 
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 import Abstract.*;
+import utility.MyMath;
+import utility.Vector;
 
 
 public class Flashlight extends Item {
 
-    public Flashlight(double x, double y, Image image) {
-        _xCoord = x;
-        _yCoord = y;
-        _width = 200;
-        _height = 20;
-        _image = image;
 
+    Image _onImage, _offImage;
+
+    public Flashlight(Image on, Image off) {
+        _width = 200;
+        _height = 100;
+
+        _onImage = on;
+        _offImage = off;
+        _image = _onImage;
     }
 
     @Override
@@ -24,58 +30,91 @@ public class Flashlight extends Item {
     }
 
 
-    public Human use(int centerOfManX, int centerOfManY) {
-        return null;
+    public boolean colliding(Moving other) {
+
+
+        //if the flashlight is a  reasonable distance from the object
+        if (MyMath.getDistanceBetweenTwoPoints(
+                _owner.getCenterX(),
+                _owner.getCenterY(),
+                other.getCenterX(),
+                other.getCenterY()) < this.getWidth()) {
+
+
+            Vector vFlash = new Vector(
+                    this.getRotation(),
+                    this.getWidth());
+
+
+            double centerOfManX = _owner.getCenterX();
+            double centerOfManY = _owner.getCenterY();
+            double _widthOf0DegreeTriangle = 0;
+            double _heightOf0DegreeTriangle = Math.abs(centerOfManY - getY() - getHeight() / 2);
+            double _hypotenuseOf0DegreeTriangle = Math.sqrt(Math.pow(_widthOf0DegreeTriangle, 2) +
+                    Math.pow(_heightOf0DegreeTriangle, 2));
+
+            double _angleFromCenter = Math.toDegrees(Math.asin(Math.sin(Math.toRadians(90)) / _hypotenuseOf0DegreeTriangle * _heightOf0DegreeTriangle));
+            double remainingAngle = 180 - _angleFromCenter - getRotation();
+            double newHeight = _hypotenuseOf0DegreeTriangle * Math.sin(Math.toRadians(remainingAngle)) / Math.sin(Math.toRadians(90.0D));
+            double newWidth = Math.sqrt(Math.pow(_hypotenuseOf0DegreeTriangle, 2) - Math.pow(newHeight, 2));
+
+            double x = 0;
+            double y = 0;
+            newWidth = Math.abs(newWidth);
+            newHeight = Math.abs(newHeight);
+            if (remainingAngle < 90.0) {
+                x = centerOfManX - newWidth;
+            } else {
+                x = centerOfManX + newWidth;
+            }
+            y = centerOfManY - newHeight;
+            if (isFacingFirstQuad()) {
+                y = centerOfManY - newHeight;
+                x = centerOfManX + newWidth;
+                if (remainingAngle < 90.0D) {
+                    x = centerOfManX - newWidth;
+                }
+            } else if (isFacingSecondQuad()) {
+                x = centerOfManX - newWidth;
+                y = centerOfManY - newHeight;
+                if (remainingAngle < 0.0) {
+                    y = centerOfManY + newHeight;
+                }
+            } else if (isFacingThirdQuad()) {
+                x = centerOfManX - newWidth;
+                y = centerOfManY + newHeight;
+                if (Math.abs(remainingAngle) > 90.0) {
+                    x = centerOfManX + newWidth;
+                }
+
+            } else if (isFacingFourthQuad()) {
+                x = centerOfManX + newWidth;
+                y = centerOfManY + newHeight;
+                if (Math.abs(remainingAngle) > 180.0) {
+                    y = centerOfManY - newHeight;
+                }
+            }
+
+            Vector vOther = new Vector(
+                    x,
+                    y,
+                    other.getCenterX(),
+                    other.getCenterY());
+
+            if (vFlash.dotProduct(vOther) < 20) {
+                this._owner.objectSeen(other);
+                return true;
+            }
+        }
+        return false;
     }
 
-    public boolean colliding(Player p) {
-
-/*
-        double x = getX();
-        x -= getWidth();
-        double width = getWidth() * 2;
-        double y = getY() - getWidth() + getHeight() / 2;
-        double height = width;
-        Rectangle frect = new Rectangle((int) x, (int) y, (int) width, (int) height);
-        Rectangle prect = new Rectangle((int) p.getX(), (int) p.getY(), p.getWidth(), p.getHeight());
-
-
-        //this is our 0,0
-        double origX = getX();
-        double origY = getY() + getHeight() / 2;
-        double hyp = Math.sqrt(Math.pow(getWidth(), 2) + Math.pow(getHeight() / 2, 2));
-        height = hyp * Math.sin(Math.toRadians(getRotation()));
-        width = Math.sqrt(Math.pow(hyp, 2) - Math.pow(height, 2));
-        if (getRotation() > 90 && getRotation() < 270) {
-            width = -width;
+    public void use() {
+        if (_image == _onImage) {
+            _image = _offImage;
+        } else {
+            _image = _onImage;
         }
-
-        double fx = origX + width;
-        double fy = origY - height;
-        fx -= origX;
-        fy -= origY;
-
-        Triangle fTri = new Triangle(fx, fy, width, height, hyp);
-        fTri.normalize();
-        double px = p.getX() - origX;
-        double py = origY - p.getY();
-        hyp = Math.sqrt(Math.pow(px, 2) + Math.pow(py, 2));
-        Triangle pTri = new Triangle(px, py, px, py, hyp);
-        pTri.normalize();
-
-
-        double x1 = fTri.getWidth();
-
-        double x2 = pTri.getWidth();
-        double y1 = fTri.getHeight();
-        double y2 = pTri.getHeight();
-
-        double dotProduct = (x1 * x2) + (y1 * y2);
-
-
-        return frect.getBounds().intersects(prect) && dotProduct > .98;*/
-        return false;
-
     }
 
 

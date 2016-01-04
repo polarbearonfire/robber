@@ -10,8 +10,8 @@ import java.awt.*;
 public class Scenery extends Moving {
     public Scenery(int x, int y, int width, int height, Image img){
 
-        _xCoord = x;
-        _yCoord = y;
+        _x = x;
+        _y = y;
         _width = width;
         _height = height;
         _image = img;

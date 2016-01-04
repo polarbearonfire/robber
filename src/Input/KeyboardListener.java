@@ -1,6 +1,5 @@
 package Input;
 
-import enums.Commands;
 import startup.GameController;
 
 import java.awt.event.KeyEvent;
@@ -55,7 +54,7 @@ public class KeyboardListener implements java.awt.event.KeyListener {
                 this._gameController.aKeyReleased();
                 break;
             case KeyEvent.VK_SPACE:
-                this._gameController.spaceKeyReleased();
+                this._gameController.spaceReleased();
                 break;
         }
     }

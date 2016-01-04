@@ -2,37 +2,112 @@
 package Abstract;
 
 
+import Objects.Flashlight;
+import enums.Direction;
+
+import java.awt.*;
+import java.util.Vector;
+
 public abstract class Human extends Moving {
 
-    protected boolean _isShooting;
-    protected boolean _isPainting;
     public java.util.Queue<Item> _items;
     public Item _item;
-
+    protected Vector<String> _messages;
     protected int USE_GUN_LIMIT = 300;
     protected int USE_PAINT_LIMIT = 300;
+    protected Flashlight _flashlight;
+
+    public void objectSeen(Moving what) {
+
+    }
 
     @Override
     public void increment() {
         super.increment();
         if (_item != null) {
-            _item.setXCoord(this.getX() + getWidth() / 4);
-            _item.setYCoord((this.getY()));
+            _item.setX(this.getX() + getWidth() / 2);
+            _item.setY((this.getY() - _item.getHeight() / 2) + this.getHeight() / 8);
             _item.setRotation(this.getRotation());
         }
+    }
 
+    @Override
+    public boolean colliding(Moving other) {
+        if (super.colliding(other)) {
+            fixCollision(other);
+            return true;
+        }
+        return false;
+    }
+
+    public void fixCollision(Moving other) {
+        //we know this is colliding with other, so adjust moving direction accordingly
+
+        Rectangle thisRect = new Rectangle(
+                (int) getX(),
+                (int) getY(),
+                getWidth(),
+                getHeight());
+        Rectangle otherRect = new Rectangle(
+                (int) other.getX(),
+                (int) other.getY(),
+                other.getWidth(),
+                other.getHeight());
+
+
+        if (thisRect.intersectsLine(
+                otherRect.getX(),
+                otherRect.getY(),
+                otherRect.getX() + otherRect.getWidth(),
+                otherRect.getY())) {
+            if (this._yDir == Direction.DOWN) {
+                _y -= _speed;
+            }
+            if (other.getYDirection() == Direction.UP) {
+                other.setY(other.getY() + other.getSpeed());
+            }
+        }
+        if (thisRect.intersectsLine(
+                otherRect.getX(),
+                otherRect.getY() + otherRect.getHeight(),
+                otherRect.getX() + otherRect.getWidth(),
+                otherRect.getY() + otherRect.getHeight())) {
+            if (this._yDir == Direction.UP) {
+                _y += _speed;
+            }
+            if (other.getYDirection() == Direction.DOWN) {
+                other.setY(other.getY() - other.getSpeed());
+            }
+        }
+        if (thisRect.intersectsLine(
+                otherRect.getX(),
+                otherRect.getY(),
+                otherRect.getX(),
+                otherRect.getY() + otherRect.getHeight())
+                ) {
+            if (this._xDir == Direction.RIGHT) {
+                _x -= _speed;
+            }
+            if (other.getXDirection() == Direction.LEFT) {
+                other.setX(other.getX() + other.getSpeed());
+            }
+        }
+        if (thisRect.intersectsLine(
+                otherRect.getX() + otherRect.getWidth(),
+                otherRect.getY(),
+                otherRect.getX() + otherRect.getWidth(),
+                otherRect.getY() + otherRect.getHeight())
+                ) {
+            if (this._xDir == Direction.LEFT) {
+                _x += _speed;
+            }
+            if (other.getXDirection() == Direction.RIGHT) {
+                other.setX(other.getX() - other.getSpeed());
+            }
+        }
     }
 
     abstract public Moving useItem();
-
-    public double getItemPlaceX() {
-        return _xCoord + getWidth() / 2;
-    }
-
-    public double getItemPlaceY() {
-        return _yCoord;
-    }
-
 
     public Item getItem() {
         return _item;
@@ -58,27 +133,7 @@ public abstract class Human extends Moving {
         item.setOwner(this);
     }
 
-
-    public void setShooting(boolean whether) {
-        _isShooting = whether;
+    public String getNextMessage() {
+        return _messages.elementAt(0);
     }
-
-    public void togglePainting() {
-        _isPainting = !_isPainting;
-    }
-
-
-    public void setPainting(boolean whether) {
-        this._isPainting = whether;
-    }
-
-    public boolean isPainting() {
-        return this._isPainting;
-    }
-
-    public boolean isShooting() {
-        return this._isShooting;
-    }
-
-
 }

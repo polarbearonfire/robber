@@ -1,6 +1,7 @@
 package jFrame;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.Vector;
 import javax.swing.JPanel;
 
@@ -13,26 +14,33 @@ public class MainPanel
         extends JPanel {
     private static final long serialVersionUID = 7380123579708902387L;
     GameController _controller;
-    String _notification;
-    public static int centerScreenX = 0;
-    public static int centerScreenY = 0;
+    Image _cursorImage;
+    static int centerScreenX = 0;
+    static int centerScreenY = 0;
+    static Player _player;
 
-    public MainPanel(GameController gc) {
-        _notification = "";
+    public MainPanel(GameController gc, Image cursor) {
         _controller = gc;
+        _cursorImage = cursor;
     }
 
-    public void setNotification(String toSet) {
-        _notification = toSet;
-    }
 
-    public static int getCenterScreenX(){
+
+    public static int getCenterScreenX() {
         return centerScreenX;
     }
 
-    public static int getCenterScreenY(){
+    public static int getCenterScreenY() {
         return centerScreenY;
     }
+
+    public static double getOffsetX(){
+        return centerScreenX - _player.getCenterX();
+    }
+    public static double getOffsetY(){
+        return centerScreenY - _player.getCenterY();
+    }
+
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -40,9 +48,10 @@ public class MainPanel
             centerScreenX = getWidth() / 2;
             centerScreenY = getHeight() / 2;
 
-            Player p = GameController.getPlayer();
-            double offsetX = centerScreenX - p.getCenterX();
-            double offsetY = centerScreenY - p.getCenterY();
+            _player = GameController.getPlayer();
+            double offsetX = centerScreenX - _player.getCenterX();
+            double offsetY = centerScreenY - _player.getCenterY();
+
 
 
             Vector<Moving> allMoving = _controller.getAllMovingObjects();
@@ -63,7 +72,16 @@ public class MainPanel
                 }
             }
 
-            g.drawString(this._notification, 10, 20);
+
+            //draw cursor
+            g.drawImage(
+                    _cursorImage,
+                    GameController.getMouseX() - _cursorImage.getWidth(null) / 2,
+                    GameController.getMouseY() - _cursorImage.getHeight(null) / 2,
+                    _cursorImage.getWidth(null),
+                    _cursorImage.getHeight(null),
+                    null);
+
         }
 
     }

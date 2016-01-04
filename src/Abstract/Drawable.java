@@ -7,8 +7,8 @@ import java.awt.*;
  * Created by danecarlson on 10/1/2015.
  */
 public abstract class Drawable {
-    public double _xCoord;
-    public double _yCoord;
+    public double _x;
+    public double _y;
     public double _rotation;
     public boolean _isRotatingCounterClockwise;
     public int _height;
@@ -29,12 +29,12 @@ public abstract class Drawable {
         _rotation = what;
     }
 
-    public void setXCoord(double x) {
-        _xCoord = x;
+    public void setX(double x) {
+        _x = x;
     }
 
-    public void setYCoord(double y) {
-        _yCoord = y;
+    public void setY(double y) {
+        _y = y;
     }
 
     public int getHeight() {
@@ -48,20 +48,20 @@ public abstract class Drawable {
 
 
     public double getX() {
-        return _xCoord;
+        return _x;
     }
 
     public double getY() {
-        return _yCoord;
+        return _y;
 
     }
 
     public double getCenterX(){
-        return _xCoord + _width/2;
+        return _x + _width/2;
     }
 
     public double getCenterY(){
-        return _yCoord + _height/2;
+        return _y + _height/2;
     }
 
     public java.awt.Image getImage() {

@@ -16,7 +16,7 @@ public class MyMouseClickListener implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        _gameController.spaceKeyReleased();
+        _gameController.mouseClicked(e.getX(), e.getY());
     }
 
     @Override

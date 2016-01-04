@@ -1,10 +1,9 @@
 package startup;
 
-import Abstract.*;
+import Abstract.Human;
 import Input.MyMouseClickListener;
 import Input.MyMouseMotionListener;
 import Objects.*;
-import Abstract.Human;
 import Abstract.Moving;
 import Input.KeyboardListener;
 import Objects.Paint;
@@ -12,6 +11,7 @@ import enums.*;
 
 import java.awt.*;
 import java.awt.event.MouseMotionListener;
+import java.awt.image.BufferedImage;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -20,6 +20,7 @@ import java.util.logging.Logger;
 import javax.swing.*;
 
 import jFrame.MainPanel;
+import jFrame.StatusLabel;
 import utility.FileHelper;
 import utility.MyMath;
 
@@ -28,16 +29,28 @@ public class GameController implements Runnable {
 
     JFrame _frame;
     MainPanel _mainPanel;
+    StatusLabel _statusLabel;
     KeyboardListener _keyboardListener;
     MouseMotionListener _mouseMotionListener;
     MyMouseClickListener _mouseClickListener;
-    Vector<Moving> _objects;
+    Vector<Bullet> _bullets;
+    Vector<Moving> _items;
+    Vector<Moving> _footprints;
+    Vector<Moving> _humans;
+    Vector<Moving> _scenery;
     static Player _player;
     FileHelper _fileHelper;
     boolean _switchItem;
+    boolean _useItem;
+    static int _currentMouseX;
+    static int _currentMouseY;
 
     public GameController() {
-        _objects = new Vector();
+        _bullets = new Vector();
+        _items = new Vector();
+        _footprints = new Vector();
+        _humans = new Vector();
+        _scenery = new Vector();
         _fileHelper = new FileHelper(this);
     }
 
@@ -45,14 +58,22 @@ public class GameController implements Runnable {
         return _player;
     }
 
+    public static int getMouseX() {
+        return _currentMouseX;
+    }
+
+    public static int getMouseY() {
+        return _currentMouseY;
+    }
+
     public void setUp() {
         setUpFrame();
-        setUpKeyboardListener();
         setUpPlayer();
+        setUpListeners();
+
 
         try {
             Scanner sc = new Scanner(new java.io.File("levelOneMap.txt"));
-            Vector<Human> mos = new Vector<>();
             while (sc.hasNext()) {
                 ArrayList<String> vals = (_fileHelper.getValues(sc));
 
@@ -62,18 +83,41 @@ public class GameController implements Runnable {
                 int height = Integer.parseInt(vals.get(3));
 
                 if (vals.get(4).equals("GUARD")) {
-                    Scenery scenery = new Scenery(Integer.parseInt(vals.get(5)),
+                    Rectangle routeRectangle = new Rectangle(
+                            Integer.parseInt(vals.get(5)),
                             Integer.parseInt(vals.get(6)),
                             Integer.parseInt(vals.get(7)),
-                            Integer.parseInt(vals.get(8)),
-                            initImage(Paths.CUBICLE.toString()));
-                    Guard g = new Guard(x, y, width, height, initImage(Paths.GUARD.toString()), scenery);
-                    Flashlight f = new Flashlight(g.getX(), g.getY(), initImage(Paths.FLASHLIGHT.toString()));
-                    _objects.add(f);
-                    g.giveItem(f);
-                    _objects.add(g);
+                            Integer.parseInt(vals.get(8)));
+                    Flashlight f = new Flashlight(initImage(Paths.FLASHLIGHT.toString()), initImage(Paths.FLASHLIGHT_OFF.toString()));
+                    Guard g = new Guard(x, y, width, height, initImage(Paths.GUARD.toString()), f, routeRectangle);
 
-                    _objects.add(scenery);
+                    _items.add(f);
+                    g.giveItem(f);
+                    _humans.add(g);
+
+                } else if (vals.get(4).equals("PRISONER")) {
+                    Prisoner p = new Prisoner(x, y, width, height, initImage(Paths.PRISONER.toString()));
+
+                    _humans.add(p);
+
+                } else if (vals.get(4).equals("WALL")) {
+                    Scenery scenery = new Scenery(
+                            Integer.parseInt(vals.get(0)),
+                            Integer.parseInt(vals.get(1)),
+                            Integer.parseInt(vals.get(2)),
+                            Integer.parseInt(vals.get(3)),
+                            initImage(Paths.WALL.toString()));
+                    _scenery.add(scenery);
+
+                } else if (vals.get(4).equals("PRISONBARS")) {
+                    Scenery scenery = new Scenery(
+                            Integer.parseInt(vals.get(0)),
+                            Integer.parseInt(vals.get(1)),
+                            Integer.parseInt(vals.get(2)),
+                            Integer.parseInt(vals.get(3)),
+                            initImage(Paths.PRISON_BARS.toString()));
+                    _scenery.add(scenery);
+
                 }
             }
 
@@ -92,7 +136,7 @@ public class GameController implements Runnable {
 
         toSet = "Current Item: " + toSet;
 
-        _mainPanel.setNotification(toSet);
+        _statusLabel.setNotification(toSet);
 
     }
 
@@ -101,55 +145,60 @@ public class GameController implements Runnable {
 
         _frame = new JFrame();
 
-        _frame.setSize(1500, 800);
+        _frame.setSize(1500, 1000);
 
         _frame.setDefaultCloseOperation(3);
+        _mainPanel = new MainPanel(this, initImage(Paths.CURSOR.toString()));
+        _mainPanel.setLayout(new BorderLayout());
+
+        BufferedImage cursorImg = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
+        Cursor blankCursor = Toolkit.getDefaultToolkit().createCustomCursor(
+                cursorImg, new Point(0, 0), "blank cursor");
+        _frame.getContentPane().setCursor(blankCursor);
+
+        _mainPanel.setBackground(Color.decode("#423A31"));
+        _frame.getContentPane().add(_mainPanel, BorderLayout.CENTER);
 
 
-        _mainPanel = new MainPanel(this);
+        _statusLabel = new StatusLabel(this);
+        _statusLabel.setPreferredSize(new Dimension(_frame.getWidth(), 150));
+        _statusLabel.setVisible(true);
 
-        _mainPanel.setBackground(Color.darkGray);
-
-
-        _frame.getContentPane().add(_mainPanel, "Center");
-
+        _mainPanel.add(_statusLabel, BorderLayout.PAGE_END);
         _frame.setVisible(true);
-
     }
 
 
     private void setUpPlayer() {
-
-        _player = new Player(50, 50, initImage(Paths.ROBBER.toString()));
-        _objects.add(_player);
-        Item gun = new Gun(
-                (int) _player.getX(),
-                (int) _player.getY(),
+        Gun gun = new Gun(
                 35,
                 20,
-                (int) _player.getX() + _player.getWidth() / 2,
-                (int) _player.getY() + _player.getHeight() / 2,
+                MainPanel.getCenterScreenY(),
                 initImage(Paths.BASIC_GUN.toString()));
-        gun.setOwner(_player);
-        _player.giveItem(gun);
-<<<<<<< 279acda1b00013e734ee52c60bb45b67bbe0c6c6
-        _drawableObjects.add(gun);
-        _player.loadItem();//commment
-        IItem flashlight = new Flashlight(_player.getXCoord(), _player.getYCoord(), 100, 20, initImage(Paths.FLASHLIGHT.toString()));
-=======
-        _objects.add(gun);
-        Item flashlight = new Flashlight(_player.getX(), _player.getY(), initImage(Paths.FLASHLIGHT.toString()));
->>>>>>> Structural changes
+        Paint paint = new Paint(initImage(Paths.PAINT.toString()));
+
+        Flashlight flashlight = new Flashlight(
+                initImage(Paths.FLASHLIGHT.toString()), initImage(Paths.FLASHLIGHT_OFF.toString()));
+        _player = new Player(
+                MainPanel.getCenterScreenX(),
+                MainPanel.getCenterScreenY(),
+                50,
+                50,
+                gun,
+                paint,
+                flashlight,
+                initImage(Paths.ROBBER.toString()));
         _player.giveItem(flashlight);
-        flashlight.setOwner(_player);
-        Item paint = new Paint((int) _player.getX(), (int) _player.getY(), 40, 40, initImage(Paths.PAINT.toString()));
-        paint.setOwner(_player);
+        _player.giveItem(gun);
         _player.giveItem(paint);
-        setNotification(gun.getName());
+        _humans.add(_player);
+        _items.add(flashlight);
+
+        setNotification(_player.getItem().getName());
     }
 
 
-    private void setUpKeyboardListener() {
+    private void setUpListeners() {
 
         _keyboardListener = new KeyboardListener(this);
         _mouseMotionListener = new MyMouseMotionListener(this);
@@ -164,86 +213,22 @@ public class GameController implements Runnable {
 
     }
 
-    public void mouseMoved(int x, int y){
+    public void mouseMoved(int x, int y) {
         double angle = MyMath.findAngleOfTwoPoints(
                 MainPanel.getCenterScreenX(),
                 MainPanel.getCenterScreenY(),
                 x,
                 y);
+
         _player.setRotation(angle);
+        _currentMouseX = x;
+        _currentMouseY = y;
 
-<<<<<<< 279acda1b00013e734ee52c60bb45b67bbe0c6c6
-<<<<<<< 1839a85a2ee4849faef2ce5d05f68461e97e72f1
-    public void buttonPressed(Commands pressed) {
-        switch (pressed) {
-
-            case GoUp:
-                _player.setYDir(Direction.UP);
-                break;
-
-            case GoDown:
-                _player.setYDir(Direction.DOWN);
-                break;
-
-            case GoRight:
-                _player.setXDir(Direction.RIGHT);
-                break;
-
-            case GoLeft:
-                _player.setXDir(Direction.LEFT);
-                break;
-
-            case StopUp:
-                _player.setYDir(Direction.NONE);
-
-                break;
-
-            case StopDown:
-                _player.setYDir(Direction.NONE);
-                break;
-
-
-            case StopRight:
-                _player.setXDir(Direction.NONE);
-                break;
-
-
-            case StopLeft:
-                _player.setXDir(Direction.NONE);
-
-                break;
-
-
-            case PullTrigger:
-                if ((_player.getItem() instanceof Gun)) {
-
-                    _player.setShooting(true);
-
-                } else if ((_player.getItem() instanceof NonMoving.Paint)) {
-
-                    _player.togglePainting();
-
-                }
-
-                break;
-
-            case RotateCounterClockwise:
-
-                _player.setRotateCC(true);
-
-                _player.setRotateC(false);
-
-                break;
-=======
-    public void upKeyPressed() {
-=======
     }
 
     public void wKeyPressed() {
->>>>>>> Structural changes
         _player.setYDir(Direction.UP);
     }
->>>>>>> Fixed KeyListener
 
     public void wKeyReleased() {
         _player.setYDir(Direction.NONE);
@@ -273,14 +258,21 @@ public class GameController implements Runnable {
         _player.setXDir(Direction.RIGHT);
     }
 
-
-
-    public void spaceKeyReleased() {
-        if ((_player.getItem() instanceof Gun)) {
-            _player.setShooting(true);
-        } else if ((_player.getItem() instanceof Objects.Paint)) {
-            _player.togglePainting();
+    public void mouseClicked(int mouseX, int mouseY) {
+        mouseX -= MainPanel.getOffsetX();
+        mouseY -= MainPanel.getOffsetY();
+        _useItem = true;
+        for (Moving mo : getAllMovingObjects()) {
+            if (mo instanceof Prisoner) {
+                Rectangle rect = new Rectangle((int) mo.getX(), (int) mo.getY(), mo.getWidth(), mo.getHeight());
+                if (rect.intersects(mouseX, mouseY, 250, 250)) {
+                    _statusLabel.displayMessage(((Human) mo).getNextMessage());
+                }
+            }
         }
+    }
+
+    public void spaceReleased() {
     }
 
     public void tKeyPressed() {
@@ -292,36 +284,51 @@ public class GameController implements Runnable {
 
         while (true) {
 
-            for (Moving m : _objects) {
-                m.increment();
-            }
-
             if (_switchItem) {
-                _player.setPainting(false);
-                _player.setShooting(false);
-
-                _objects.remove(_player.getItem());
+                _items.remove(_player.getItem());
                 _player.nextItem();
-                _objects.add(_player.getItem());
+                _items.add(_player.getItem());
                 setNotification(_player.getItem().getName());
                 _player.getItem().setBelongsToMainCharacter(true);
 
                 _switchItem = false;
             }
 
-            Moving productOfItem = _player.useItem();
-            if (productOfItem != null) {
-                if (productOfItem instanceof Bullet) {
-                    _objects.add((Bullet) productOfItem);
-                } else {
-                    //if (_footprints.size() > 10) {
-                    //  _footprints.remove(0);
-                    //}
-                    _objects.add((Footprint) productOfItem);
+            if (_useItem) {
+                _useItem = false;
+                Moving productOfItem = _player.useItem();
+                if (productOfItem != null) {
+                    if (productOfItem instanceof Bullet) {
+                        _bullets.add((Bullet) productOfItem);
+                    } else if (productOfItem instanceof Footprint) {
+                        if (_footprints.size() > 10) {
+                            _footprints.remove(0);
+                        }
+                        _footprints.add((Footprint) productOfItem);
+                    }
                 }
             }
-            for (Moving m : _objects) {
-                m.increment();
+
+            Vector<Moving> all = getAllMovingObjects();
+            for (Moving m : all) {
+                boolean collided = false;
+                for (int i = 0; i < all.size() && !collided; i++) {
+                    Moving m2 = all.get(i);
+                    if (m != m2) {
+                        if (m.colliding(m2)) {
+                            collided = true;
+                        } else {
+                            m.increment();
+                        }
+                    }
+                }
+            }
+
+            for (int i = 0; i < _bullets.size(); i++) {
+                if (_bullets.elementAt(i).hasHitObject()) {
+                    _bullets.remove(i);
+                    i--;
+                }
             }
             _mainPanel.repaint();
         }
@@ -329,18 +336,19 @@ public class GameController implements Runnable {
 
 
     public Vector<Moving> getAllMovingObjects() {
+        Vector<Moving> toReturn = new Vector<Moving>();
+        toReturn.addAll(_bullets);
+        toReturn.addAll(_scenery);
+        toReturn.addAll(_footprints);
+        toReturn.addAll(_humans);
+        toReturn.addAll(_items);
 
-        return _objects;
-
+        return toReturn;
     }
 
 
     public Image initImage(String path) {
-
         ImageIcon toReturn = new ImageIcon(this.getClass().getClassLoader().getResource(path.substring(1)));
         return toReturn.getImage();
     }
 }
-
-
- 

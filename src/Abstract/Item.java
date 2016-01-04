@@ -3,16 +3,12 @@ package Abstract;
 
 
 public abstract class Item extends Moving {
-
-
     protected Human _owner;
 
-    public Human getOwner() {
-        return _owner;
+
+    public boolean colliding(Moving other) {
+        return false;
     }
-
-
-    public abstract Moving use(int paramInt1, int paramInt2);
 
     public void setOwner(Human owner) {
         _owner = owner;
@@ -22,15 +18,10 @@ public abstract class Item extends Moving {
         _belongsToMainCharacter = whether;
     }
 
-    public boolean belongsToMainCharacter() {
-        return _belongsToMainCharacter;
-    }
-
     public double getRotation() {
-        if(_owner != null) {
+        if (_owner != null) {
             return _owner.getRotation();
-        }
-        else{
+        } else {
             return _rotation;
         }
     }
@@ -38,7 +29,7 @@ public abstract class Item extends Moving {
     @Override
     public int getRotatingPointX() {
         if (_owner != null) {
-            return (int) _owner.getX() + _owner.getWidth() / 2;
+            return _owner.getRotatingPointX();
         } else {
             return super.getRotatingPointX();
         }
@@ -47,7 +38,7 @@ public abstract class Item extends Moving {
     @Override
     public int getRotatingPointY() {
         if (_owner != null) {
-            return (int) _owner.getY() + _owner.getHeight() / 2;
+            return _owner.getRotatingPointY();
         } else {
             return super.getRotatingPointY();
         }

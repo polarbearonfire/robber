@@ -8,11 +8,12 @@ public class Bullet
         extends Moving {
     double _rise;
     double _run;
+    boolean _hasHitObject;
 
 
     public Bullet(int x, int y, double rise, double run, int width, int height, Image img) {
-        _xCoord = x;
-        _yCoord = y;
+        _x = x;
+        _y = y;
         _width = width;
         _height = height;
         _image = img;
@@ -20,13 +21,27 @@ public class Bullet
         _run = run;
     }
 
+    public boolean hasHitObject() {
+        return _hasHitObject;
+    }
+
 
     @Override
     public void increment() {
         if (System.currentTimeMillis() - _lastTimeMoved > INCREMENT_LIMIT) {
-            _xCoord += _run;
-            _yCoord += _rise;
+            _x += _run;
+            _y += _rise;
             _lastTimeMoved = System.currentTimeMillis();
         }
+    }
+
+    @Override
+    public boolean colliding(Moving other) {
+        if (super.colliding(other)) {
+            _hasHitObject = true;
+            other.hitByBullet();
+            return true;
+        }
+        return false;
     }
 }
