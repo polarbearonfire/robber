@@ -2,61 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93bff6ea-618b-411a-8fa0-51d0302c38dd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Resources/cursor.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Resources/flashlightOff.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Resources/prisonBars.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Resources/prisonerSprite.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Objects/Prisoner.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/jFrame/StatusLabel.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Robber/Resources/calm.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Robber/Resources/frenzied.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Robber/Resources/guardfrenzied.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Robber/utility/Triangle.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Resources/calm.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Resources/frenzied.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Resources/guardfrenzied.png" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/utility/Triangle.java" afterPath="$PROJECT_DIR$/src/utility/Vector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/Abstract/Drawable.class" afterPath="$PROJECT_DIR$/out/production/Robber/Abstract/Drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/Abstract/Human.class" afterPath="$PROJECT_DIR$/out/production/Robber/Abstract/Human.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/Abstract/Item.class" afterPath="$PROJECT_DIR$/out/production/Robber/Abstract/Item.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/Abstract/Moving.class" afterPath="$PROJECT_DIR$/out/production/Robber/Abstract/Moving.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/Input/KeyboardListener.class" afterPath="$PROJECT_DIR$/out/production/Robber/Input/KeyboardListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/Input/MyMouseClickListener.class" afterPath="$PROJECT_DIR$/out/production/Robber/Input/MyMouseClickListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/Objects/Bullet.class" afterPath="$PROJECT_DIR$/out/production/Robber/Objects/Bullet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/Objects/Flashlight.class" afterPath="$PROJECT_DIR$/out/production/Robber/Objects/Flashlight.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/Objects/Footprint.class" afterPath="$PROJECT_DIR$/out/production/Robber/Objects/Footprint.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/Objects/Guard.class" afterPath="$PROJECT_DIR$/out/production/Robber/Objects/Guard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/Objects/Gun.class" afterPath="$PROJECT_DIR$/out/production/Robber/Objects/Gun.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/Objects/Paint.class" afterPath="$PROJECT_DIR$/out/production/Robber/Objects/Paint.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/Objects/Player.class" afterPath="$PROJECT_DIR$/out/production/Robber/Objects/Player.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/Objects/Scenery.class" afterPath="$PROJECT_DIR$/out/production/Robber/Objects/Scenery.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/Resources/flashlight.png" afterPath="$PROJECT_DIR$/out/production/Robber/Resources/flashlight.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/enums/Paths$1.class" afterPath="$PROJECT_DIR$/out/production/Robber/enums/Paths$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/enums/Paths.class" afterPath="$PROJECT_DIR$/out/production/Robber/enums/Paths.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/jFrame/MainPanel.class" afterPath="$PROJECT_DIR$/out/production/Robber/jFrame/MainPanel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/startup/GameController.class" afterPath="$PROJECT_DIR$/out/production/Robber/startup/GameController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Robber/utility/MyMath.class" afterPath="$PROJECT_DIR$/out/production/Robber/utility/MyMath.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Resources/flashlight.png" afterPath="$PROJECT_DIR$/src/Resources/flashlight.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/levelOneMap.txt" afterPath="$PROJECT_DIR$/levelOneMap.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Abstract/Drawable.java" afterPath="$PROJECT_DIR$/src/Abstract/Drawable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Abstract/Human.java" afterPath="$PROJECT_DIR$/src/Abstract/Human.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Abstract/Item.java" afterPath="$PROJECT_DIR$/src/Abstract/Item.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Abstract/Moving.java" afterPath="$PROJECT_DIR$/src/Abstract/Moving.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Input/KeyboardListener.java" afterPath="$PROJECT_DIR$/src/Input/KeyboardListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Input/MyMouseClickListener.java" afterPath="$PROJECT_DIR$/src/Input/MyMouseClickListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Objects/Bullet.java" afterPath="$PROJECT_DIR$/src/Objects/Bullet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Objects/Flashlight.java" afterPath="$PROJECT_DIR$/src/Objects/Flashlight.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Objects/Footprint.java" afterPath="$PROJECT_DIR$/src/Objects/Footprint.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Objects/Guard.java" afterPath="$PROJECT_DIR$/src/Objects/Guard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Objects/Gun.java" afterPath="$PROJECT_DIR$/src/Objects/Gun.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Objects/Paint.java" afterPath="$PROJECT_DIR$/src/Objects/Paint.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Objects/Player.java" afterPath="$PROJECT_DIR$/src/Objects/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Objects/Scenery.java" afterPath="$PROJECT_DIR$/src/Objects/Scenery.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/enums/Paths.java" afterPath="$PROJECT_DIR$/src/enums/Paths.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jFrame/MainPanel.java" afterPath="$PROJECT_DIR$/src/jFrame/MainPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/startup/GameController.java" afterPath="$PROJECT_DIR$/src/startup/GameController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utility/MyMath.java" afterPath="$PROJECT_DIR$/src/utility/MyMath.java" />
     </list>
     <ignored path="Robber.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -82,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/src/startup/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.35672516">
-              <caret line="262" column="41" selection-start-line="262" selection-start-column="41" selection-end-line="262" selection-end-column="41" />
+              <caret line="257" column="37" selection-start-line="257" selection-start-column="37" selection-end-line="257" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1518#1519#0" expanded="true" />
@@ -669,7 +615,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -679,7 +625,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32881355" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32881355" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24739583" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1126,7 +1072,7 @@
     <entry file="file://$PROJECT_DIR$/src/startup/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35672516">
-          <caret line="262" column="41" selection-start-line="262" selection-start-column="41" selection-end-line="262" selection-end-column="41" />
+          <caret line="257" column="37" selection-start-line="257" selection-start-column="37" selection-end-line="257" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1518#1519#0" expanded="true" />
