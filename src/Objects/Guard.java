@@ -52,7 +52,7 @@ public class Guard extends Human {
                 _currentDestination = new Coord(
                         (int) GameController.getPlayer().getX(),
                         (int) GameController.getPlayer().getY());
-                ((Player) what).spotted();
+                //((Player) what).spotted();
             }
         }
     }
