@@ -12,6 +12,7 @@ public abstract class Human extends Moving {
 
     public java.util.Queue<Item> _items;
     public Item _item;
+    public String _name = "Human";
     protected Vector<String> _messages;
     protected int USE_GUN_LIMIT = 300;
     protected int USE_PAINT_LIMIT = 300;
@@ -134,6 +135,6 @@ public abstract class Human extends Moving {
     }
 
     public String getNextMessage() {
-        return _messages.elementAt(0);
+        return _name + ": " + _messages.elementAt(0);
     }
 }

@@ -45,3 +45,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+#.idea files. I don't think we need these.
+.idea/
+#output files. We can build them ourselves
+out/

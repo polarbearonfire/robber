@@ -14,7 +14,8 @@ public class StatusLabel
     public StatusLabel(GameController gc) {
         _controller = gc;
         _notification = "";
-
+        //this.setBackground(Color.PINK);
+        //this.setOpaque(true);
     }
 
     public void setNotification(String toSet) {
@@ -29,7 +30,7 @@ public class StatusLabel
         g.drawString(_notification, 0, 100);
 
         if (_message != null) {
-            g.drawString(_message, 100, 150);
+            g.drawString(_message, 500, 100);
         }
     }
 

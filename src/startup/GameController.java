@@ -278,7 +278,8 @@ public class GameController implements Runnable {
     public void tKeyPressed() {
         _switchItem = true;
     }
-
+    public void shiftKeyPressed() { _player._speed = 5;}
+    public void shiftKeyReleased() { _player._speed = 1;}
 
     public void run() {
 

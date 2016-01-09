@@ -26,6 +26,7 @@ public class Prisoner extends Human {
         _x = x;
         _y = y;
         _player = GameController.getPlayer();
+        _name = "Prisoner";
         _width = width;
         _height = height;
         _image = img;//).getSubimage(0, 0, 50, 50);
