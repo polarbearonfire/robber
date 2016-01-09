@@ -47,6 +47,7 @@ Temporary Items
 .apdisk
 
 #.idea files. I don't think we need these.
-.idea/
+**/.idea/workspace.xml
+**/.idea/tasks.xml
 #output files. We can build them ourselves
-out/
+**/out/
