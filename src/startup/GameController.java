@@ -1,5 +1,6 @@
 package startup;
 
+import Abstract.Drawable;
 import Abstract.Human;
 import Input.MyMouseClickListener;
 import Input.MyMouseMotionListener;
@@ -184,13 +185,9 @@ public class GameController implements Runnable {
                 MainPanel.getCenterScreenY(),
                 50,
                 50,
-                gun,
-                paint,
-                flashlight,
                 initImage(Paths.ROBBER.toString()));
         _player.giveItem(flashlight);
         _player.giveItem(gun);
-        _player.giveItem(paint);
         _humans.add(_player);
         _items.add(flashlight);
 
@@ -296,7 +293,7 @@ public class GameController implements Runnable {
 
             if (_useItem) {
                 _useItem = false;
-                Moving productOfItem = _player.useItem();
+                Drawable productOfItem = _player.useItem();
                 if (productOfItem != null) {
                     if (productOfItem instanceof Bullet) {
                         _bullets.add((Bullet) productOfItem);

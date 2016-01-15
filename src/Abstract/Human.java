@@ -13,7 +13,7 @@ public abstract class Human extends Moving {
     public java.util.Queue<Item> _items;
     public Item _item;
     protected Vector<String> _script;
-    protected int USE_GUN_LIMIT = 300;
+    protected int USE_ITEM_LIMIT = 300;
     protected int USE_PAINT_LIMIT = 300;
     protected Flashlight _flashlight;
 
@@ -107,7 +107,7 @@ public abstract class Human extends Moving {
         }
     }
 
-    abstract public Moving useItem();
+    abstract public Drawable useItem();
 
     public Item getItem() {
         return _item;

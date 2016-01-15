@@ -45,7 +45,7 @@ public class Prisoner extends Human {
 
 
     public Moving useItem() {
-        _flashlight.use();
+        _flashlight.use(0,0);
         return null;
     }
 
