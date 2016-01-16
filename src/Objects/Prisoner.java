@@ -22,10 +22,10 @@ public class Prisoner extends Human {
     protected Coord _currentDestination;
     protected double _degreeDestination;
     Player _player;
-    //Vector<String> _script;
+    Vector<String> _script;
 
     public Prisoner(int x, int y, int width, int height, Image img) {
-        //_script = Script.getScript(id);
+        _script = Script.getScript(Script.Ids.IntroPrisoner);
         _x = x;
         _y = y;
         _player = GameController.getPlayer();
@@ -41,7 +41,7 @@ public class Prisoner extends Human {
     }
 
     public String getNextMessage() {
-        return "";//script[0];
+        return _script.elementAt(0);
     }
 
 
