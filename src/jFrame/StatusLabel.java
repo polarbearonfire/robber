@@ -14,8 +14,8 @@ public class StatusLabel
     public StatusLabel(GameController gc) {
         _controller = gc;
         _notification = "";
-        //this.setBackground(Color.PINK);
-        //this.setOpaque(true);
+        this.setBackground(Color.PINK);
+        this.setOpaque(true);
     }
 
     public void setNotification(String toSet) {
