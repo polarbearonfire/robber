@@ -1,6 +1,7 @@
 
 package Objects;
 
+import Abstract.Drawable;
 import Abstract.Human;
 import Abstract.Item;
 import Abstract.Moving;
@@ -25,7 +26,7 @@ public class Gun extends Item {
 
     }
 
-    public Bullet use(int centerOfManX, int centerOfManY) {
+    public Drawable use(double centerOfManX, double centerOfManY){
 
         _widthOf0DegreeTriangle = getWidth();
         _heightOf0DegreeTriangle = Math.abs(centerOfManY - getY() - getHeight() / 2);

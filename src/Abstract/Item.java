@@ -34,6 +34,9 @@ public abstract class Item extends Moving {
             return super.getRotatingPointX();
         }
     }
+    public Drawable use(double x, double y){
+        return null;
+    }
 
     @Override
     public int getRotatingPointY() {

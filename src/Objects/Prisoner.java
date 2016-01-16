@@ -2,6 +2,7 @@ package Objects;
 
 import Abstract.Human;
 import Abstract.Moving;
+import Resources.Script;
 import enums.Direction;
 import enums.Paths;
 import startup.GameController;
@@ -21,33 +22,31 @@ public class Prisoner extends Human {
     protected Coord _currentDestination;
     protected double _degreeDestination;
     Player _player;
+    //Vector<String> _script;
 
     public Prisoner(int x, int y, int width, int height, Image img) {
+        //_script = Script.getScript(id);
         _x = x;
         _y = y;
         _player = GameController.getPlayer();
         _name = "Prisoner";
         _width = width;
         _height = height;
-        _image = img;//).getSubimage(0, 0, 50, 50);
+        _image = img;
         _speed = 0.5;
         _rotationSpeed = .8;
         _currentDestination = new Coord(
                 (int) _player.getX(),
                 (int) _player.getY());
-        _messages = new Vector();
-        _messages.add("Hey!  Hey you.  Come over here!");
     }
 
-    public void hitByBullet() {
-        _speed = 0;
-        _rotationSpeed = 0;
-        _rotation = 270;
-        useItem();
+    public String getNextMessage() {
+        return "";//script[0];
     }
+
 
     public Moving useItem() {
-        _flashlight.use();
+        _flashlight.use(0,0);
         return null;
     }
 

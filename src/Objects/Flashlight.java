@@ -109,12 +109,14 @@ public class Flashlight extends Item {
         return false;
     }
 
-    public void use() {
+    @Override
+    public Drawable use(double x, double y) {
         if (_image == _onImage) {
             _image = _offImage;
         } else {
             _image = _onImage;
         }
+        return null;
     }
 
 
