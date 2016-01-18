@@ -14,10 +14,12 @@ public class Player
     public Player(int x, int y, int width, int height, Image img) {
         _x = x;
         _y = y;
+        _walk = 1;
+        _sprint = 2;
+        _speed = _walk;
         _width = width;
         _height = height;
         _image = img;
-        _speed = 1;
         _rotationSpeed = 2;
         _image = img;
         _items = new LinkedList<>();
@@ -48,4 +50,6 @@ public class Player
         }
         return null;
     }
+
+
 }

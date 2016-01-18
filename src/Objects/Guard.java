@@ -23,20 +23,21 @@ public class Guard extends Human {
     boolean _pulverised;
 
 
-    public Guard(int x, int y, int width, int height, Image img, Flashlight flash, Rectangle patrol) {
+    public Guard(int x, int y, int width, int height, Image img, Rectangle patrol) {
         _x = x;
         _y = y;
         _width = width;
         _height = height;
         _image = img;
         _patrolClockwise = new Random().nextBoolean();
-        _speed = .5;
+        _walk = .8;
+        _sprint = 1.5;
+        _speed = _walk;
         _rotationSpeed = .8;
         _walkingImagePaths = new LinkedList<>();
         _walkingImagePaths.add(Paths.ROBBER.toString());
         _walkingImagePaths.add(Paths.ROBBER_LEFT.toString());
         _walkingImagePaths.add(Paths.ROBBER_RIGHT.toString());
-        _flashlight = flash;
         _footprintsAlreadySeen = new Vector();
         this.getRouteFromRectangle(patrol);
         determineDirections();
@@ -62,11 +63,10 @@ public class Guard extends Human {
         _speed = 0;
         _rotationSpeed = 0;
         _rotation = 270;
-        useItem();
     }
 
     public Moving useItem() {
-        _flashlight.use(0,0);
+        _item.use(0,0);
         return null;
     }
 

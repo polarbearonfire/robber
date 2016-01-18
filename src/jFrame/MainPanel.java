@@ -49,7 +49,7 @@ public class MainPanel
             centerScreenY = getHeight() / 2;
 
             _player = GameController.getPlayer();
-            
+
             Vector<Moving> allMoving = _controller.getAllMovingObjects();
             for (int i = 0; i < allMoving.size(); i++) {
                 double offsetX = centerScreenX - _player.getCenterX();

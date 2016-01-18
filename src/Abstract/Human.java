@@ -2,7 +2,6 @@
 package Abstract;
 
 
-import Objects.Flashlight;
 import enums.Direction;
 
 import java.awt.*;
@@ -15,8 +14,9 @@ public abstract class Human extends Moving {
     public String _name = "Human";
     protected Vector<String> _script;
     protected int USE_ITEM_LIMIT = 300;
-    protected int USE_PAINT_LIMIT = 300;
-    protected Flashlight _flashlight;
+
+    //speed is either sprint or walk
+    protected double _sprint, _walk;
 
     public void objectSeen(Moving what) {
 
@@ -136,5 +136,12 @@ public abstract class Human extends Moving {
 
     public String getNextMessage() {
         return _name + ": " + _script.elementAt(0);
+    }
+
+    public void stopSprinting() {
+        _speed = _walk;
+    }
+    public void sprint(){
+        _speed = _sprint;
     }
 }

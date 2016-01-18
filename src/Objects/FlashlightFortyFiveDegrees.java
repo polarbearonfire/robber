@@ -10,15 +10,15 @@ import utility.MyMath;
 import utility.Vector;
 
 
-public class Flashlight extends Item {
+public class FlashlightFortyFiveDegrees extends Item {
 
 
     Image _onImage, _offImage;
-
-    public Flashlight(Image on, Image off) {
+    double _halfAngle;
+    public FlashlightFortyFiveDegrees(Image on, Image off) {
         _width = 200;
         _height = 100;
-
+        _halfAngle = 20;
         _onImage = on;
         _offImage = off;
         _image = _onImage;
@@ -101,7 +101,7 @@ public class Flashlight extends Item {
                     other.getCenterX(),
                     other.getCenterY());
 
-            if (vFlash.dotProduct(vOther) < 20) {
+            if (vFlash.dotProduct(vOther) < _halfAngle) {
                 this._owner.objectSeen(other);
                 return true;
             }
@@ -121,6 +121,6 @@ public class Flashlight extends Item {
 
 
     public String getName() {
-        return "Flashlight";
+        return "Flashlight (45 Degrees)";
     }
 }

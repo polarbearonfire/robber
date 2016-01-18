@@ -89,11 +89,11 @@ public class GameController implements Runnable {
                             Integer.parseInt(vals.get(6)),
                             Integer.parseInt(vals.get(7)),
                             Integer.parseInt(vals.get(8)));
-                    Flashlight f = new Flashlight(initImage(Paths.FLASHLIGHT.toString()), initImage(Paths.FLASHLIGHT_OFF.toString()));
-                    Guard g = new Guard(x, y, width, height, initImage(Paths.GUARD.toString()), f, routeRectangle);
+                    FlashlightFortyFiveDegrees f = new FlashlightFortyFiveDegrees(initImage(Paths.FLASHLIGHT.toString()), initImage(Paths.FLASHLIGHT_OFF.toString()));
+                    Guard g = new Guard(x, y, width, height, initImage(Paths.GUARD.toString()), routeRectangle);
+                    g.giveItem(f);
 
                     _items.add(f);
-                    g.giveItem(f);
                     _humans.add(g);
 
                 } else if (vals.get(4).equals("PRISONER")) {
@@ -178,7 +178,7 @@ public class GameController implements Runnable {
                 initImage(Paths.BASIC_GUN.toString()));
         Paint paint = new Paint(initImage(Paths.PAINT.toString()));
 
-        Flashlight flashlight = new Flashlight(
+        FlashlightFortyFiveDegrees flashlightFortyFiveDegrees = new FlashlightFortyFiveDegrees(
                 initImage(Paths.FLASHLIGHT.toString()), initImage(Paths.FLASHLIGHT_OFF.toString()));
         _player = new Player(
                 MainPanel.getCenterScreenX(),
@@ -186,10 +186,10 @@ public class GameController implements Runnable {
                 50,
                 50,
                 initImage(Paths.ROBBER.toString()));
-        _player.giveItem(flashlight);
+        _player.giveItem(flashlightFortyFiveDegrees);
         _player.giveItem(gun);
         _humans.add(_player);
-        _items.add(flashlight);
+        _items.add(flashlightFortyFiveDegrees);
 
         setNotification(_player.getItem().getName());
     }
@@ -275,8 +275,8 @@ public class GameController implements Runnable {
     public void tKeyPressed() {
         _switchItem = true;
     }
-    public void shiftKeyPressed() { _player._speed = 5;}
-    public void shiftKeyReleased() { _player._speed = 1;}
+    public void shiftKeyPressed() { _player.sprint();}
+    public void shiftKeyReleased() { _player.stopSprinting();}
 
     public void run() {
 
