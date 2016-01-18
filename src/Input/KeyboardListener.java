@@ -36,6 +36,9 @@ public class KeyboardListener implements java.awt.event.KeyListener {
             case KeyEvent.VK_SHIFT:
                 this._gameController.shiftKeyPressed();
                 break;
+            case KeyEvent.VK_SPACE:
+                this._gameController.spaceKeyPressed();
+                break;
         }
 
     }

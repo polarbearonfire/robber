@@ -18,9 +18,6 @@ public abstract class Human extends Moving {
     //speed is either sprint or walk
     protected double _sprint, _walk;
 
-    public void objectSeen(Moving what) {
-
-    }
 
     @Override
     public void increment() {
@@ -34,9 +31,13 @@ public abstract class Human extends Moving {
 
     @Override
     public boolean colliding(Moving other) {
-        if (super.colliding(other)) {
-            fixCollision(other);
-            return true;
+        if(other != _item) {
+            if (super.colliding(other)) {
+                if(!(other instanceof Item)){
+                    fixCollision(other);
+                }
+                return true;
+            }
         }
         return false;
     }
@@ -129,7 +130,6 @@ public abstract class Human extends Moving {
             this._item = item;
         } else {
             this._items.add(item);
-            this._item.setBelongsToMainCharacter(true);
         }
         item.setOwner(this);
     }

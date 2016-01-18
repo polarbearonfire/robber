@@ -3,7 +3,7 @@ package Abstract;
 
 
 public abstract class Item extends Moving {
-    protected Human _owner;
+    protected Drawable  _owner;
 
 
     public boolean colliding(Moving other) {
@@ -19,7 +19,7 @@ public abstract class Item extends Moving {
     }
 
     public double getRotation() {
-        if (_owner != null) {
+        if (_owner != null && _owner != this) {
             return _owner.getRotation();
         } else {
             return _rotation;
@@ -28,7 +28,7 @@ public abstract class Item extends Moving {
 
     @Override
     public int getRotatingPointX() {
-        if (_owner != null) {
+        if (_owner != null && _owner != this) {
             return _owner.getRotatingPointX();
         } else {
             return super.getRotatingPointX();
@@ -40,7 +40,7 @@ public abstract class Item extends Moving {
 
     @Override
     public int getRotatingPointY() {
-        if (_owner != null) {
+        if (_owner != null && _owner != this) {
             return _owner.getRotatingPointY();
         } else {
             return super.getRotatingPointY();

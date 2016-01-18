@@ -21,9 +21,9 @@ public abstract class Drawable {
         ImageIcon toReturn = new ImageIcon(this.getClass().getClassLoader().getResource(path.substring(1)));
         return toReturn.getImage();
     }
-    public void belongsToMainCharacter(boolean whether) {
-        _belongsToMainCharacter = whether;
-    }
+
+    public void objectSeen(Moving what){}
+
 
     public void setRotation(double what) {
         _rotation = what;

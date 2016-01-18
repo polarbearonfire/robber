@@ -1,5 +1,6 @@
 package Objects;
 
+import Abstract.Drawable;
 import Abstract.Item;
 import Abstract.Moving;
 import enums.Paths;
@@ -14,8 +15,9 @@ public class Paint extends Item {
         _image = image;
     }
 
-    public Moving use(int x, int y) {
-        return new Footprint(x, y, getRotation(), initImage(Paths.FOOTPRINT.toString()));
+    @Override
+    public Drawable use(double x, double y){
+        return new Footprint((int)x, (int)y, getRotation(), initImage(Paths.FOOTPRINT.toString()));
     }
 
 

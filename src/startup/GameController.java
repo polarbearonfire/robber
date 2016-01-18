@@ -2,6 +2,7 @@ package startup;
 
 import Abstract.Drawable;
 import Abstract.Human;
+import Abstract.Item;
 import Input.MyMouseClickListener;
 import Input.MyMouseMotionListener;
 import Objects.*;
@@ -35,7 +36,7 @@ public class GameController implements Runnable {
     MouseMotionListener _mouseMotionListener;
     MyMouseClickListener _mouseClickListener;
     Vector<Bullet> _bullets;
-    Vector<Moving> _items;
+    Vector<Item> _items;
     Vector<Moving> _footprints;
     Vector<Moving> _humans;
     Vector<Moving> _scenery;
@@ -43,6 +44,7 @@ public class GameController implements Runnable {
     FileHelper _fileHelper;
     boolean _switchItem;
     boolean _useItem;
+    boolean _pickUpItem;
     static int _currentMouseX;
     static int _currentMouseY;
 
@@ -78,12 +80,11 @@ public class GameController implements Runnable {
             while (sc.hasNext()) {
                 ArrayList<String> vals = (_fileHelper.getValues(sc));
 
-                int x = Integer.parseInt(vals.get(0));
-                int y = Integer.parseInt(vals.get(1));
-                int width = Integer.parseInt(vals.get(2));
-                int height = Integer.parseInt(vals.get(3));
-
-                if (vals.get(4).equals("GUARD")) {
+                if (vals.get(0).equals("GUARD")) {
+                    int x = Integer.parseInt(vals.get(1));
+                    int y = Integer.parseInt(vals.get(2));
+                    int width = Integer.parseInt(vals.get(3));
+                    int height = Integer.parseInt(vals.get(4));
                     Rectangle routeRectangle = new Rectangle(
                             Integer.parseInt(vals.get(5)),
                             Integer.parseInt(vals.get(6)),
@@ -96,29 +97,45 @@ public class GameController implements Runnable {
                     _items.add(f);
                     _humans.add(g);
 
-                } else if (vals.get(4).equals("PRISONER")) {
+                } else if (vals.get(0).equals("PRISONER")) {
+                    int x = Integer.parseInt(vals.get(1));
+                    int y = Integer.parseInt(vals.get(2));
+                    int width = Integer.parseInt(vals.get(3));
+                    int height = Integer.parseInt(vals.get(4));
                     Prisoner p = new Prisoner(x, y, width, height, initImage(Paths.PRISONER.toString()));
 
                     _humans.add(p);
 
-                } else if (vals.get(4).equals("WALL")) {
+                } else if (vals.get(0).equals("WALL")) {
                     Scenery scenery = new Scenery(
-                            Integer.parseInt(vals.get(0)),
                             Integer.parseInt(vals.get(1)),
                             Integer.parseInt(vals.get(2)),
                             Integer.parseInt(vals.get(3)),
+                            Integer.parseInt(vals.get(4)),
                             initImage(Paths.WALL.toString()));
                     _scenery.add(scenery);
 
-                } else if (vals.get(4).equals("PRISONBARS")) {
+                } else if (vals.get(0).equals("PRISONBARS")) {
                     Scenery scenery = new Scenery(
-                            Integer.parseInt(vals.get(0)),
                             Integer.parseInt(vals.get(1)),
                             Integer.parseInt(vals.get(2)),
                             Integer.parseInt(vals.get(3)),
+                            Integer.parseInt(vals.get(4)),
                             initImage(Paths.PRISON_BARS.toString()));
                     _scenery.add(scenery);
-
+                }
+                else if(vals.get(0).equals("FLASHLIGHT")){
+                    FlashlightFortyFiveDegrees f = new FlashlightFortyFiveDegrees(initImage(Paths.FLASHLIGHT.toString()),
+                            initImage(Paths.FLASHLIGHT_OFF.toString()));
+                    f.setX(Integer.parseInt(vals.get(1)));
+                    f.setY(Integer.parseInt(vals.get(2)));
+                    _items.add(f);
+                }
+                else if(vals.get(0).equals("PAINT")){
+                    Paint p = new Paint((initImage(Paths.PAINT.toString())));
+                    p.setX(Integer.parseInt(vals.get(1)));
+                    p.setY(Integer.parseInt(vals.get(2)));
+                    _items.add(p);
                 }
             }
 
@@ -176,20 +193,16 @@ public class GameController implements Runnable {
                 20,
                 MainPanel.getCenterScreenY(),
                 initImage(Paths.BASIC_GUN.toString()));
-        Paint paint = new Paint(initImage(Paths.PAINT.toString()));
 
-        FlashlightFortyFiveDegrees flashlightFortyFiveDegrees = new FlashlightFortyFiveDegrees(
-                initImage(Paths.FLASHLIGHT.toString()), initImage(Paths.FLASHLIGHT_OFF.toString()));
         _player = new Player(
                 MainPanel.getCenterScreenX(),
                 MainPanel.getCenterScreenY(),
                 50,
                 50,
                 initImage(Paths.ROBBER.toString()));
-        _player.giveItem(flashlightFortyFiveDegrees);
         _player.giveItem(gun);
+        _items.add(gun);
         _humans.add(_player);
-        _items.add(flashlightFortyFiveDegrees);
 
         setNotification(_player.getItem().getName());
     }
@@ -276,7 +289,8 @@ public class GameController implements Runnable {
         _switchItem = true;
     }
     public void shiftKeyPressed() { _player.sprint();}
-    public void shiftKeyReleased() { _player.stopSprinting();}
+    public void shiftKeyReleased(){_player.stopSprinting();}
+    public void spaceKeyPressed() { _pickUpItem = true;}
 
     public void run() {
 
@@ -305,6 +319,17 @@ public class GameController implements Runnable {
                         _footprints.add((Footprint) productOfItem);
                     }
                 }
+            }
+
+            if(_pickUpItem){
+                _pickUpItem = false;
+                for (int i = 0; i < _items.size(); i++) {
+                    Item item = _items.get(i);
+                        if (_player.colliding(item)) {
+                            _player.giveItem(item);
+                            _items.remove(item);
+                        }
+                    }
             }
 
             Vector<Moving> all = getAllMovingObjects();

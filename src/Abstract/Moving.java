@@ -65,22 +65,21 @@ public abstract class Moving extends Drawable {
 
 
     public boolean colliding(Moving other) {
-        if (!(this instanceof Item) && !(other instanceof Item)) {
-            Rectangle thisRect = new Rectangle(
-                    (int) getX(),
-                    (int) getY(),
-                    getWidth(),
-                    getHeight());
-            Rectangle otherRect = new Rectangle(
-                    (int) other.getX(),
-                    (int) other.getY(),
-                    other.getWidth(),
-                    other.getHeight());
-            if (thisRect.getBounds().intersects(otherRect)) {
-                return true;
-            }
-
+        Rectangle thisRect = new Rectangle(
+                (int) getX(),
+                (int) getY(),
+                getWidth(),
+                getHeight());
+        Rectangle otherRect = new Rectangle(
+                (int) other.getX(),
+                (int) other.getY(),
+                other.getWidth(),
+                other.getHeight());
+        if (thisRect.getBounds().intersects(otherRect)) {
+            return true;
         }
+
+
         return false;
     }
 

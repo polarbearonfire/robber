@@ -2,6 +2,7 @@ package Objects;
 
 import java.awt.Image;
 
+import Abstract.Item;
 import Abstract.Moving;
 
 public class Bullet
@@ -37,6 +38,7 @@ public class Bullet
 
     @Override
     public boolean colliding(Moving other) {
+        if(!(other instanceof Item))
         if (super.colliding(other)) {
             _hasHitObject = true;
             other.hitByBullet();

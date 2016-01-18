@@ -22,6 +22,7 @@ public class FlashlightFortyFiveDegrees extends Item {
         _onImage = on;
         _offImage = off;
         _image = _onImage;
+        _owner = this;
     }
 
     @Override
