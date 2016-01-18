@@ -49,13 +49,11 @@ public class MainPanel
             centerScreenY = getHeight() / 2;
 
             _player = GameController.getPlayer();
-            double offsetX = centerScreenX - _player.getCenterX();
-            double offsetY = centerScreenY - _player.getCenterY();
-
-
-
+            
             Vector<Moving> allMoving = _controller.getAllMovingObjects();
             for (int i = 0; i < allMoving.size(); i++) {
+                double offsetX = centerScreenX - _player.getCenterX();
+                double offsetY = centerScreenY - _player.getCenterY();
                 Moving mo = allMoving.elementAt(i);
                 if (mo != null) {
                     Graphics2D g2d = (Graphics2D) g.create();
