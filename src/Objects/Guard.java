@@ -23,11 +23,11 @@ public class Guard extends Human {
     boolean _pulverised;
 
 
-    public Guard(int x, int y, int width, int height, Image img, Rectangle patrol) {
+    public Guard(int x, int y, Image img, Rectangle patrol) {
         _x = x;
         _y = y;
-        _width = width;
-        _height = height;
+        _width = 50;
+        _height = 50;
         _image = img;
         _patrolClockwise = new Random().nextBoolean();
         _walk = .8;
@@ -187,12 +187,12 @@ public class Guard extends Human {
 
 
     public void getRouteFromRectangle(Rectangle routeRect) {
-        double x1 = routeRect.getX() - getWidth() * 1.5;
-        double y1 = routeRect.getY() - getHeight() * 1.5;
-        double x2 = routeRect.getX() + routeRect.getWidth() + getWidth() * 1.5;
+        double x1 = routeRect.getX();
+        double y1 = routeRect.getY();
+        double x2 = routeRect.getX() + routeRect.getWidth();
         double y2 = y1;
         double x3 = x2;
-        double y3 = routeRect.getY() + routeRect.getHeight() + getHeight() * 1.5;
+        double y3 = routeRect.getY() + routeRect.getHeight();
         double x4 = x1;
         double y4 = y3;
         _route = new Route((int) x1, (int) y1, (int) x2, (int) y2, (int) x3, (int) y3, (int) x4, (int) y4);

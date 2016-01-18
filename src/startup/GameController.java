@@ -83,15 +83,14 @@ public class GameController implements Runnable {
                 if (vals.get(0).equals("GUARD")) {
                     int x = Integer.parseInt(vals.get(1));
                     int y = Integer.parseInt(vals.get(2));
-                    int width = Integer.parseInt(vals.get(3));
-                    int height = Integer.parseInt(vals.get(4));
                     Rectangle routeRectangle = new Rectangle(
+                            Integer.parseInt(vals.get(3)),
+                            Integer.parseInt(vals.get(4)),
                             Integer.parseInt(vals.get(5)),
-                            Integer.parseInt(vals.get(6)),
-                            Integer.parseInt(vals.get(7)),
-                            Integer.parseInt(vals.get(8)));
+                            Integer.parseInt(vals.get(6)));
                     FlashlightFortyFiveDegrees f = new FlashlightFortyFiveDegrees(initImage(Paths.FLASHLIGHT.toString()), initImage(Paths.FLASHLIGHT_OFF.toString()));
-                    Guard g = new Guard(x, y, width, height, initImage(Paths.GUARD.toString()), routeRectangle);
+                    Guard g = new Guard(x, y, initImage(Paths.GUARD.toString()), routeRectangle);
+                    g.setRotation(Integer.parseInt(vals.get(7)));
                     g.giveItem(f);
 
                     _items.add(f);
@@ -136,6 +135,15 @@ public class GameController implements Runnable {
                     p.setX(Integer.parseInt(vals.get(1)));
                     p.setY(Integer.parseInt(vals.get(2)));
                     _items.add(p);
+                }
+                else{
+                    Scenery scenery = new Scenery(
+                            Integer.parseInt(vals.get(1)),
+                            Integer.parseInt(vals.get(2)),
+                            Integer.parseInt(vals.get(3)),
+                            Integer.parseInt(vals.get(4)),
+                            initImage(vals.get(0)));
+                    _scenery.add(scenery);
                 }
             }
 
@@ -195,8 +203,8 @@ public class GameController implements Runnable {
                 initImage(Paths.BASIC_GUN.toString()));
 
         _player = new Player(
-                MainPanel.getCenterScreenX(),
-                MainPanel.getCenterScreenY(),
+                0,
+                0,
                 50,
                 50,
                 initImage(Paths.ROBBER.toString()));
