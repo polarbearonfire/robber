@@ -10,15 +10,18 @@ import utility.MyMath;
 import utility.Vector;
 
 
-public class FlashlightFortyFiveDegrees extends Item {
+public class Flashlight extends Item {
 
 
     Image _onImage, _offImage;
     double _halfAngle;
-    public FlashlightFortyFiveDegrees(Image on, Image off) {
-        _width = 200;
-        _height = 100;
-        _halfAngle = 20;
+    public Flashlight(Image on, Image off, int width, int height) {
+        _width = width;
+        _height = height;
+        _halfAngle = Math.toDegrees(Math.asin((double)_height/2/_width));
+        System.out.print("width: " + _width);
+        System.out.print(" Height: " + _height);
+        System.out.println(" (14)Angle: " + _halfAngle);
         _onImage = on;
         _offImage = off;
         _image = _onImage;
@@ -122,6 +125,6 @@ public class FlashlightFortyFiveDegrees extends Item {
 
 
     public String getName() {
-        return "Flashlight (45 Degrees)";
+        return "Flashlight (" + _halfAngle*2 + " Degrees)";
     }
 }

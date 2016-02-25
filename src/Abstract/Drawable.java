@@ -2,6 +2,7 @@ package Abstract;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 /**
  * Created by danecarlson on 10/1/2015.
@@ -22,6 +23,16 @@ public abstract class Drawable {
         return toReturn.getImage();
     }
 
+    static public Image initImage(int w, int h){
+        BufferedImage buffIm = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D graphics = buffIm.createGraphics();
+        graphics.setColor(new Color(1f,.941176f,.64709f,.5f));
+        graphics.setStroke(new BasicStroke(1f));
+        graphics.drawLine(0,h/2,w/2,0);//   / line
+        graphics.drawLine(0,h/2,w/2,h);//   \ line
+        graphics.drawArc((w/2)-5,0,10,h,270,360);//                ) arc
+        return buffIm;
+    }
     public void objectSeen(Moving what){}
 
 

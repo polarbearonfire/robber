@@ -88,7 +88,7 @@ public class GameController implements Runnable {
                             Integer.parseInt(vals.get(4)),
                             Integer.parseInt(vals.get(5)),
                             Integer.parseInt(vals.get(6)));
-                    FlashlightFortyFiveDegrees f = new FlashlightFortyFiveDegrees(initImage(Paths.FLASHLIGHT.toString()), initImage(Paths.FLASHLIGHT_OFF.toString()));
+                    Flashlight f = new Flashlight(Drawable.initImage(50,50), initImage(Paths.FLASHLIGHT_OFF.toString()), 200, 100);
                     Guard g = new Guard(x, y, initImage(Paths.GUARD.toString()), routeRectangle);
                     g.setRotation(Integer.parseInt(vals.get(7)));
                     g.giveItem(f);
@@ -124,8 +124,8 @@ public class GameController implements Runnable {
                     _scenery.add(scenery);
                 }
                 else if(vals.get(0).equals("FLASHLIGHT")){
-                    FlashlightFortyFiveDegrees f = new FlashlightFortyFiveDegrees(initImage(Paths.FLASHLIGHT.toString()),
-                            initImage(Paths.FLASHLIGHT_OFF.toString()));
+                    Flashlight f = new Flashlight(Drawable.initImage(50,50), initImage(Paths.FLASHLIGHT_OFF.toString()),
+                            Integer.parseInt(vals.get(3)), Integer.parseInt(vals.get(4)));
                     f.setX(Integer.parseInt(vals.get(1)));
                     f.setY(Integer.parseInt(vals.get(2)));
                     _items.add(f);
