@@ -24,13 +24,33 @@ public abstract class Drawable {
     }
 
     static public Image initImage(int w, int h){
+        int[]x = new int[3];
+        int[]y = new int[3];
+        x[0] = 0;
+        y[0] = h/2;
+        x[1] = w/2;
+        y[1] = 0;
+        x[2] = w/2;
+        y[2] = h;
         BufferedImage buffIm = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
         Graphics2D graphics = buffIm.createGraphics();
+        graphics.setRenderingHint(
+                RenderingHints.KEY_ANTIALIASING,
+                RenderingHints.VALUE_ANTIALIAS_ON);
+
+        graphics.setStroke(new BasicStroke(0.1f));
         graphics.setColor(new Color(1f,.941176f,.64709f,.5f));
-        graphics.setStroke(new BasicStroke(1f));
-        graphics.drawLine(0,h/2,w/2,0);//   / line
-        graphics.drawLine(0,h/2,w/2,h);//   \ line
+        graphics.setStroke(new BasicStroke(.1f));
+
+        graphics.drawLine(x[0],y[0],x[1], y[1]);//   / line
+        graphics.drawLine(x[1], y[1], x[2], y[2]);//   \ line
+
+
+        graphics.setColor(new Color(249,242,30, 155));
+        Polygon p = new Polygon(x,y,3);
+        graphics.fillPolygon(p);
         graphics.drawArc((w/2)-5,0,10,h,270,360);//                ) arc
+        graphics.fillArc((w/2)-5,0,10,h,270,360);
         return buffIm;
     }
     public void objectSeen(Moving what){}
